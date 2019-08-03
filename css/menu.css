@@ -1,0 +1,475 @@
+/*  Plugin: jSide Menu (Responsive Side Menu)
+ *   Frameworks: jQuery 3.3.1
+ *   Author: Asif Mughal
+ *   GitHub: https://github.com/CodeHimBlog
+ *   URL: https://www.codehim.com
+ *   License: MIT License
+ *   Copyright (c) 2018 - Asif Mughal
+ */
+/* File: jquery.jside-menu.css */
+body{
+  font-weight: 300;
+  font-smoothing: antialiased;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
+}
+:root{
+    --skin-hover: rgba(0,0,0,0.1); 
+    --skin-color:  rgba(255,255,255,0.9);
+}
+.default-skin{
+  font-weight: 300;
+  font-smoothing: antialiased;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+   --skin: rgba(42,42,46,1);
+   --skin-hover: rgba(32,152,209,1); 
+   --skin-color: rgba(255,255,255,0.8); 
+}
+.light-skin{
+   --skin: rgba(240,240,240,1);
+   --skin-hover: rgba(221,221,221,1);
+   --skin-color:  rgba(35,35,35,1);
+}
+
+.menu-trigger{
+   position: fixed;
+   bottom: 60px;
+   right: 25px;
+   -webkit-appearance: none;
+   border: 0;
+   outline: 0;
+   background: transparent;
+   color: #000000;
+   cursor: pointer;
+   -webkit-tap-highlight-color: rgba(0,0,0,0.2);
+   z-index: 5;
+}
+.menu-trigger:hover{
+  opacity: 0.8;
+-webkit-opacity: 0.8;
+}
+
+.menu-trigger:before{
+   font-family: 'FontAwesome';
+   content: '\f053';
+   font-size: 24px;
+}
+
+.sticky{
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+
+.menu-container{
+   overflow: auto;
+   display: block;
+   top: 120px;
+}
+.position-left{
+   left: -270px;
+}
+.position-right{
+   right: -270px;
+}
+
+.position-left.open{
+    left: 0;
+}
+
+.position-right.open{
+    right: 0;
+}
+
+.menu-container,
+.menu-head,
+.menu-left,
+.menu-left.open
+.menu-right,
+.menu-right.open{
+    transition: .4s;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -ms-transition: .4s;
+}
+
+.menu-container,
+.menu-head{
+    background: var(--skin);
+    position: fixed;
+    width: 270px;
+    
+}
+.menu-head .layer{
+  background: rgba(0,0,0,0.2);
+  display: block;
+  padding: 15px;
+}
+
+
+.menu-head{
+   height: 120px;
+   box-sizing: border-box; 
+   margin: 0px;
+   top: 0;
+}
+
+.menu-items {
+  list-style: none;
+  font-size: 14px;
+}
+
+.menu .dropdown-heading,
+.menu .menu-items li a{
+   text-decoration: none;
+   padding: 12px 12px 12px 45px;
+   display: block;
+   color: var(--skin-color);
+   border-bottom: 1px dotted rgba(255,255,255,0.05);
+   margin: 0;
+   cursor: pointer;
+   user-select: none;
+}
+.dropdown-heading:hover,
+.menu-items li a:hover{
+   background: var(--skin-hover);
+}
+
+
+
+@keyframes fadeIn{
+   from{
+     opacity: 0;
+    -webkit-opacity: 0;
+    }
+    to{
+     opacity: 1;
+    -webkit-opacity: 1;
+   }
+}
+-webkit-@keyframes fadeIn{
+   from{
+     opacity: 0;
+    -webkit-opacity: 0;
+    }
+    to{
+     opacity: 1;
+    -webkit-opacity: 1;
+   }
+}
+
+.item-icon{
+   margin: 0 25px 0 0;
+   display: inline;
+   width: 32px;
+   height: 32px;
+   line-height: 32px;
+   position: absolute;
+   font-size: 15pt;
+  margin: 5px;
+   text-align: center;
+   color: var(--skin-color);
+}
+
+/* Dropdowns */
+.has-sub ul{
+   list-style: none;
+   overflow: hidden;
+   height: 0px;
+   transition: .360s;
+   background: rgba(242,249,249,1);
+}
+
+.menu .has-sub ul li a{
+   display: block;
+   padding: 12px 33px;
+   border-bottom: 0;
+   font-size: 13px;
+   color: rgba(68,68,68,1);
+   transition: .1s;
+   -webkit-transition: .1s;
+   border-bottom: 1px dotted #e1e1e1;
+}
+
+ .has-sub ul li a:hover{
+   background: rgba(222,222,222,1);
+   transition: .1s;
+ -webkit-transition: .1s;
+}
+
+.has-sub span{
+  display: block;
+  box-sizing: border-box;
+}
+
+.has-sub i.arrow{
+   float: right;
+   margin-right: 10px;  
+   transition: 0.360s;
+   font-size: 16px;
+}
+
+.has-sub .arrowdown{
+   transform: rotateZ(180deg);
+   -webkit-transform: rotateZ(180deg);
+   -moz-transform: rotateZ(180deg);
+   transition: 0.360s;
+   -webkit-transition: 0.360s;
+   -moz-transition: 0.360s;
+}
+
+.col{
+    display: table;   
+}
+
+.row{
+   display: table-cell;  
+}
+.for-name {
+   max-width: 140px;
+   padding: 10px;
+   color: var(--skin-color);
+}
+
+.for-pic {
+    max-width: 70px;
+}
+
+.profile-pic img{
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   border: 1px solid rgba(255, 255, 255, 0.01);
+   object-fit: cover;
+  
+}
+.menu-head p {
+   top: -35px;
+   font-size: 13pt;
+   font-weight: 400;
+}
+
+.tagline,
+.menu-head p{
+   display: block;
+   position: relative;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.tagline{
+   font-size: 11px;
+   bottom: 32px;
+   display: block;
+}
+
+/*skins*/
+.red {
+	background: #e41b17;
+   --skin-hover: #000000;
+   --skin-color: #ffffff;
+}
+
+/* Clover Green*/
+
+.green {
+	background: #3ea055;
+	 --skin-hover: rgba(0, 0, 0, 0.1);
+    --skin-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dodger Blue*/
+
+.blue {
+	background: #1589ff;
+   --skin-hover: #000000;
+   --skin-color: #ffffff;
+}
+
+/* Bright Neon Pink*/
+
+.bnp {
+	background: #f433ff;
+   --skin-hover: rgba(0,0,0,0.1);
+   --skin-color:  rgba(255,255,255,0.9);
+}
+
+/* Pumpkin Orange */
+
+.orange {
+	background: #f87217;
+}
+
+/* Black*/
+
+.black {
+	background: #000000;
+}
+
+/* Neon Pink*/
+
+.pink {
+	background: #f535aa;
+}
+
+/* Golden Brown */
+
+.gol-b {
+	background: #eac117;
+}
+
+/* Greenish Blue */
+
+.greenish {
+	background: #307d7e;
+
+}
+
+/* Wood */
+
+.wood {
+	background: #966f33;
+
+}
+/* gradients themes colors */
+/* Endless River */
+
+.endless-river {
+	--theme-color: #43cea2;
+	background: #43cea2;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#185a9d,#43cea2);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#185a9d,#43cea2);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#185a9d,#43cea2);
+}
+
+
+/* Crazy Orange */
+
+.crazy-orange {
+	--theme-color: #d38312;
+	background: #d38312;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#a83279,#d38312);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#a83279,#d38312);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#a83279,#d38312);
+}
+
+
+/* Between the Clouds */
+
+.between-clouds {
+	--theme-color: #73c8a9;
+	background: #73c8a9;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#373b44, #73c8a9);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#373b44,#73c8a9);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#373b44,#73c8a9);
+}
+
+
+/* Amethyst */
+
+.amethyst {
+	--theme-color: #9d50bb;
+	background: #9d50bb;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#6e48aa,#9d50bb);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#6e48aa,#9d50bb);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#6e48aa,#9d50bb);
+}
+
+
+/* Man of the Steel */
+
+.steel-man {
+	--theme-color: #780206;
+	background: #780206;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#061161,#780206);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#061161,#780206);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#061161,#780206);
+}
+
+
+/* Dance to Forget */
+
+.d2f {
+	--theme-color: #ff4e50;
+	background: #ff4e50;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#f9d423,#ff4e50);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#f9d423,#ff4e50);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#f9d423,#ff4e50);
+}
+
+
+/* Park Life */
+
+.park-life {
+	--theme-color: #add100;
+	background: #add100;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#7b920a,#add100);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#7b920a,#add100);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#7b920a,#add100);
+}
+
+
+/* Moonlit Asteroid */
+
+.moonlit {
+	--theme-color: #0f2027;
+	background: #0f2027;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#2c5364,#203a43, #0f2027);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#2c5364,#203a43, #0f2027);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#2c5364,#203a43, #0f2027);
+}
+
+
+/* Facebook Messenger */
+
+.fb-messenger {
+	--theme-color: #00c6ff;
+	background: #00c6ff;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#0072ff,#00c6ff);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#0072ff,#00c6ff);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#0072ff,#00c6ff);
+}
+
+
+/* Flickr */
+
+.flickr {
+	--theme-color: #ff0084;
+	background: #ff0084;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right,#33001b,#ff0084);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#33001b,#ff0084);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	--theme-color: linear-gradient(to right,#33001b,#ff0084);
+}
