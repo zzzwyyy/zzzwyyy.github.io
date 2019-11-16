@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MySQL简单学习增删改查命令 | zzzwyyy的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="zzzwyyy">
+  <meta name="keywords" content>
+  <meta name="description" content="跳出舒适圈，保持学习的习惯。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/menu.css"> 
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "moonlit",
+	     });
+	}); 
+	</script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><img src="/images/person_1.jpg"></div>
+    <span>2019-10-09</span>
+    <h2>MySQL简单学习增删改查命令</h2>
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。</p>
+<h2 id="MySql的下载安装"><a href="#MySql的下载安装" class="headerlink" title="MySql的下载安装"></a>MySql的下载安装</h2><ol>
+<li>下载MySQL数据库可以访问官方网站：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></li>
+</ol>
+<p><img src="install_1.png" alt></p>
+<p><img src="install_2.png" alt></p>
+<ol start="2">
+<li>选择合适的下载就可以啦</li>
+</ol>
+<p><img src="install_3.png" alt></p>
+<p><img src="install_4.png" alt></p>
+<ol start="3">
+<li>我们还要下载一个workbench操作mysql客户端，可视化操作</li>
+</ol>
+<p><img src="install_workbench.png" alt></p>
+<p>或者 <a href="https://dev.mysql.com/downloads/workbench/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/workbench/</a></p>
+<ol start="4">
+<li>然后就是傻瓜式安装了，这里面会让你填写密码，一定要记住这个密码哦！！</li>
+</ol>
+<h2 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h2><p>点击这个小圆圈，就会出现一个框</p>
+<p><img src="set_1.png" alt></p>
+<p>进去就是这个样子的，我们执行<code>show databases</code>查看一下，注意这里的闪电标识，如果没有选中语句，点击这个闪电，代表执行所有的命令，如果想只执行一个命令，就选中那个命令，然后点击闪电</p>
+<p><img src="set_2.png" alt></p>
+<h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3><p>点击下图的图标，在Name框里输入你的库的名字，然后点击Apply就可以了，他还会再弹出一个框，继续点击Apply，我们的库就建好啦！<br><img src="set_object_1.png" alt></p>
+<p>如果你想要确认有没有建库成功，可以再执行以下<code>show databases</code>就可以啦</p>
+<p><img src="set_object_2.png" alt></p>
+<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><p>在左侧就能找到我们刚才建的库了，然后我们只需要在Tables里建表就可以啦</p>
+<p><img src="set_table_1.png" alt></p>
+<ul>
+<li>Column name – 列名</li>
+<li>Datatype – 数据类型</li>
+<li>PK – 主键，保证不能重复</li>
+<li>NN – 不能为空</li>
+<li>AI – 自动增加</li>
+<li>default – 默认值</li>
+</ul>
+<p><img src="set_table_2.png" alt></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>use &lt;库名&gt;</code>  – 开始使用这个数据库</p>
+<p><code>show tables</code> – 显示数据库中所有的表</p>
+<p><code>--show tables</code> – 加上两个横杠，这行代码就被注释了</p>
+<h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><ul>
+<li><p><strong>增（插入数据）</strong></p>
+<pre><code>insert into users(realname) values(&apos;zhangsan&apos;);   //users是表名</code></pre></li>
+<li><p><strong>查</strong></p>
+</li>
+</ul>
+<p>&nbsp; &nbsp; &nbsp; 查询所有信息（列）</p>
+<pre><code>select * from users;     // * 表示将表中所有的列</code></pre><p>&nbsp; &nbsp; &nbsp;查询部分信息（列）</p>
+<pre><code>select id,username from users;    // id,username就被查询出来了</code></pre><p>&nbsp; &nbsp; &nbsp;查询匹配信息（列）</p>
+<pre><code>select * from users where username = &apos;zhangsan&apos; and password = &apos;123&apos;;  // where 后面跟条件</code></pre><p>&nbsp; &nbsp; &nbsp;模糊查询</p>
+<pre><code>select * from users where username like &apos;% zhang %&apos;;  //注意要用% %将条件包裹</code></pre><p>&nbsp; &nbsp; &nbsp;排序方式</p>
+<pre><code>select * from users where username like &apos;%zhang%&apos; order by id;   //这里是按照id顺序排列</code></pre><ul>
+<li><strong>改</strong></li>
+</ul>
+<p>&nbsp; &nbsp; &nbsp;MySql运行在safe-updates模式下，该模式会导致非主键条件下无法执行update或者delete命令，执行命令SET SQL_SAFE_UPDATES = 0;修改下数据库模式</p>
+<pre><code>SET SQL_SAFE_UPDATES = 0 ;</code></pre><p>&nbsp; &nbsp; &nbsp;然后带条件修改</p>
+<pre><code>update users set realname=&apos;李四2&apos; where username=&apos;lisi&apos;;</code></pre><ul>
+<li><p><strong>删</strong></p>
+<pre><code>delete from users where id=&apos;4&apos;;  //删除users表中id=4的数据</code></pre><p>&nbsp; &nbsp; &nbsp;但是应用的时候一般用的是<strong>软删除</strong>，在表中加一列名为status的列，默认值为1，想删除的行只需要用<code>updata</code>将status的值改为0就好了，相当于做一个标记，<code>select</code>时加上条件<code>status = 1</code>就可以了</p>
+</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/02/简单理解MVVM、数据双向绑定原理/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>简单理解MVVM、数据双向绑定原理</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">zzzwyyy的个人博客</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+<button class="menu-trigger"></button>
+  <div class="menu">
+	<div class="menu-head">
+	   <span class="layer">
+	<div class="col">
+	  <div class="row for-pic">
+	   <div class="profile-pic">     
+	   <img src="/images/person_1.jpg" alt="zzzwyyy"> 
+	         </div>
+	  </div>
+	         <div class="row for-name">
+	         <p>zzzwyyy</p>
+	        <span class="tagline">坚持学习，坚持运动。</span>
+	          </div>
+	         </div> 
+	  </span>
+	</div>
+	<nav class="menu-container">
+	<ul class="menu-items">
+	<li><span class="item-icon"><i class="fa fa-home fa-fw"></i></span> <a href="/">首页</a></li>
+  <li><span class="item-icon"><i class="fa fa-archive fa-fw"></i></span> <a href="/archives/">归档</a></li> 
+	<li class="has-sub"> <span class="item-icon"> <i class="fa fa-bookmark fa-fw"></i> </span>
+	<span class="dropdown-heading">页面</span><ul>
+   <li> <a href="/guestbook">留言</a></li><li> <a href="/about">关于</a></li>
+	  </ul>
+	 </li>
+    <li class="has-sub"> <span class="item-icon"> <i class="fa fa-link fa-fw"></i> </span>
+	 <span class="dropdown-heading">友链</span><ul>
+   <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+	  </ul>
+	 </li>
+	</ul>
+	</nav>
+  </div>
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+
+
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
