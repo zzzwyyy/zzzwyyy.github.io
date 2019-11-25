@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>MySQL简单学习增删改查命令 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content>
+  <meta name="description" content="MySQL简单学习增删改查命令 | zzzwyyy的个人博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="常见布局float布局、Position定位、table布局、弹性(flex)布局、网格(grid)布局、（圣杯布局、双飞翼布局、calc()函数） 三栏布局左右定宽（200px），中间自适应 大概就是这样的：  如果中间部分height比较大，那效果是这样:  1.float布局模板部分：  &amp;lt;body&amp;gt;     &amp;lt;div class=&amp;apos;wrap&amp;apos;&amp;gt;">
+<meta name="keywords" content="CSS,CSS-面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-三栏布局的几种实现方式">
+<meta property="og:url" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/index.html">
+<meta property="og:site_name" content="zzzwyyy的个人博客">
+<meta property="og:description" content="常见布局float布局、Position定位、table布局、弹性(flex)布局、网格(grid)布局、（圣杯布局、双飞翼布局、calc()函数） 三栏布局左右定宽（200px），中间自适应 大概就是这样的：  如果中间部分height比较大，那效果是这样:  1.float布局模板部分：  &amp;lt;body&amp;gt;     &amp;lt;div class=&amp;apos;wrap&amp;apos;&amp;gt;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/%E6%95%88%E6%9E%9C%E5%9B%BE_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/%E6%95%88%E6%9E%9C%E5%9B%BE_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/float_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/float_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/table_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/table_2.png">
+<meta property="og:updated_time" content="2019-11-24T09:57:31.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS-三栏布局的几种实现方式">
+<meta name="twitter:description" content="常见布局float布局、Position定位、table布局、弹性(flex)布局、网格(grid)布局、（圣杯布局、双飞翼布局、calc()函数） 三栏布局左右定宽（200px），中间自适应 大概就是这样的：  如果中间部分height比较大，那效果是这样:  1.float布局模板部分：  &amp;lt;body&amp;gt;     &amp;lt;div class=&amp;apos;wrap&amp;apos;&amp;gt;">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/24/CSS-三栏布局的几种实现方式/%E6%95%88%E6%9E%9C%E5%9B%BE_1.png">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>zzzwyyy</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/zzzwyyy" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5c9cb4586fb9a070e552aa61/posts" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:610193653@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=610193653&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(8)</small></div></li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color1">javaScript</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">CSS-面试</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-11-24 17:41:16">2019/11/24</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/09/MySQL简单学习增删改查命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL简单学习增删改查命令">MySQL简单学习增删改查命令</span>
+            <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
+            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/08/03/javaScript中的变量提升和函数提升/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
+            <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/09/21/javaScript继承/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/01/简单说说微信小程序的底层原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
+            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-MySQL简单学习增删改查命令" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">MySQL简单学习增删改查命令</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-11-16 16:29:27'>2019-10-09 16:28</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql的下载安装"><span class="toc-text">MySql的下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作数据库"><span class="toc-text">操作数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建库"><span class="toc-text">建库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建表"><span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删改查"><span class="toc-text">增删改查</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。</p>
+<h2 id="MySql的下载安装"><a href="#MySql的下载安装" class="headerlink" title="MySql的下载安装"></a>MySql的下载安装</h2><ol>
+<li>下载MySQL数据库可以访问官方网站：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></li>
+</ol>
+<p><img src="install_1.png" alt></p>
+<p><img src="install_2.png" alt></p>
+<ol start="2">
+<li>选择合适的下载就可以啦</li>
+</ol>
+<p><img src="install_3.png" alt></p>
+<p><img src="install_4.png" alt></p>
+<ol start="3">
+<li>我们还要下载一个workbench操作mysql客户端，可视化操作</li>
+</ol>
+<p><img src="install_workbench.png" alt></p>
+<p>或者 <a href="https://dev.mysql.com/downloads/workbench/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/workbench/</a></p>
+<ol start="4">
+<li>然后就是傻瓜式安装了，这里面会让你填写密码，一定要记住这个密码哦！！</li>
+</ol>
+<h2 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h2><p>点击这个小圆圈，就会出现一个框</p>
+<p><img src="set_1.png" alt></p>
+<p>进去就是这个样子的，我们执行<code>show databases</code>查看一下，注意这里的闪电标识，如果没有选中语句，点击这个闪电，代表执行所有的命令，如果想只执行一个命令，就选中那个命令，然后点击闪电</p>
+<p><img src="set_2.png" alt></p>
+<h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3><p>点击下图的图标，在Name框里输入你的库的名字，然后点击Apply就可以了，他还会再弹出一个框，继续点击Apply，我们的库就建好啦！<br><img src="set_object_1.png" alt></p>
+<p>如果你想要确认有没有建库成功，可以再执行以下<code>show databases</code>就可以啦</p>
+<p><img src="set_object_2.png" alt></p>
+<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><p>在左侧就能找到我们刚才建的库了，然后我们只需要在Tables里建表就可以啦</p>
+<p><img src="set_table_1.png" alt></p>
+<ul>
+<li>Column name – 列名</li>
+<li>Datatype – 数据类型</li>
+<li>PK – 主键，保证不能重复</li>
+<li>NN – 不能为空</li>
+<li>AI – 自动增加</li>
+<li>default – 默认值</li>
+</ul>
+<p><img src="set_table_2.png" alt></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>use &lt;库名&gt;</code>  – 开始使用这个数据库</p>
+<p><code>show tables</code> – 显示数据库中所有的表</p>
+<p><code>--show tables</code> – 加上两个横杠，这行代码就被注释了</p>
+<h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><ul>
+<li><p><strong>增（插入数据）</strong></p>
+<pre><code>insert into users(realname) values(&apos;zhangsan&apos;);   //users是表名</code></pre></li>
+<li><p><strong>查</strong></p>
+</li>
+</ul>
+<p>&nbsp; &nbsp; &nbsp; 查询所有信息（列）</p>
+<pre><code>select * from users;     // * 表示将表中所有的列</code></pre><p>&nbsp; &nbsp; &nbsp;查询部分信息（列）</p>
+<pre><code>select id,username from users;    // id,username就被查询出来了</code></pre><p>&nbsp; &nbsp; &nbsp;查询匹配信息（列）</p>
+<pre><code>select * from users where username = &apos;zhangsan&apos; and password = &apos;123&apos;;  // where 后面跟条件</code></pre><p>&nbsp; &nbsp; &nbsp;模糊查询</p>
+<pre><code>select * from users where username like &apos;% zhang %&apos;;  //注意要用% %将条件包裹</code></pre><p>&nbsp; &nbsp; &nbsp;排序方式</p>
+<pre><code>select * from users where username like &apos;%zhang%&apos; order by id;   //这里是按照id顺序排列</code></pre><ul>
+<li><strong>改</strong></li>
+</ul>
+<p>&nbsp; &nbsp; &nbsp;MySql运行在safe-updates模式下，该模式会导致非主键条件下无法执行update或者delete命令，执行命令SET SQL_SAFE_UPDATES = 0;修改下数据库模式</p>
+<pre><code>SET SQL_SAFE_UPDATES = 0 ;</code></pre><p>&nbsp; &nbsp; &nbsp;然后带条件修改</p>
+<pre><code>update users set realname=&apos;李四2&apos; where username=&apos;lisi&apos;;</code></pre><ul>
+<li><p><strong>删</strong></p>
+<pre><code>delete from users where id=&apos;4&apos;;  //删除users表中id=4的数据</code></pre><p>&nbsp; &nbsp; &nbsp;但是应用的时候一般用的是<strong>软删除</strong>，在表中加一列名为status的列，默认值为1，想删除的行只需要用<code>updata</code>将status的值改为0就好了，相当于做一个标记，<code>select</code>时加上条件<code>status = 1</code>就可以了</p>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 610193653@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>MySQL简单学习增删改查命令</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-10-09, 16:28:27</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-16, 16:29:27</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/09/MySQL简单学习增删改查命令/" title="MySQL简单学习增删改查命令">http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 zzzwyyy</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#javaScript','#CSS','#CSS-面试',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+<div style="position:absolute; bottom: 0; left: 0;">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22843781&auto=1&height=66"></iframe>
+</div>
+
+</html>
