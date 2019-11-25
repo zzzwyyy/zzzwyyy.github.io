@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>javaScript中的原型和原型链 | zzzwyyy的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="zzzwyyy">
+  <meta name="keywords" content>
+  <meta name="description" content="跳出舒适圈，保持学习的习惯。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/menu.css"> 
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "moonlit",
+	     });
+	}); 
+	</script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><img src="/images/person_1.jpg"></div>
+    <span>2019-08-14</span>
+    <h2>javaScript中的原型和原型链</h2>
+    <div class="tags"><i class="fa fa-tag"></i><a class="tag-link" href="/tags/javaScript/">javaScript</a></div></div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>在之前，我一直以为原型就是一个模板，对象根据这个模板创建，相当于拷贝。但是事实上，并不是！对象的原型其实也是一个对象，它的存在是为了让多个对象可以共享一些属性或方法。</p>
+<a id="more"></a>
+
+<p>附上一篇个人认为非常容易理解的文章：<a href="https://hexianzhi.github.io/2017/04/27/JavaScript%E5%8E%9F%E5%9E%8B/" target="_blank" rel="noopener">https://hexianzhi.github.io/2017/04/27/JavaScript%E5%8E%9F%E5%9E%8B/</a></p>
+<h2 id="prototype属性"><a href="#prototype属性" class="headerlink" title="prototype属性"></a>prototype属性</h2><p>构造函数生成实例对象时无法共享一些方法和属性，为了让多个对象共享一些属性和方法，引入了prototype属性，它指向一个对象（也可以叫prototype对象）。</p>
+<p>因此一个对象的属性和方法其实分为两种，一种是本地的（将不想共享的属性和方法放在构造函数里），还有一种是引入的（放在原型对象里）。</p>
+<pre><code>var f = function(name) {  this.name = name };
+f.prototype.getName = function() {return this.name };  //将共享的方法放在prototype对象里
+var obj1 = new f(&apos;son1&apos;);
+var obj2 = new f(&apos;son2&apos;);
+obj1.getName();  
+obj2.getName(); 
+
+//son1
+//son2</code></pre><p>getName方法被两个实例对象共享了。</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>创建实例对象时会生成一个<strong>proto</strong>指针，指向对象的原型，原型链就是通过这个<strong>proto</strong>指针来实现的。</p>
+<p>obj1的<strong>proto</strong>指向f.prototype对象(obj1的原型)，而f的prototype对象带有的<strong>proto</strong>指向Object.prototype对象（顶层对象）。</p>
+<p>函数也是对象，我们每个创建的函数其实也继承了一个函数对象，而函数则继承了 Object 对象，所以f的<strong>proto</strong>指向Function.prototype，而Function的<strong>proto</strong>指向Object.prototype对象（顶层对象）。</p>
+<p>当寻找属性的时候，就先在实例对象找，如果没有找到，就在实例对象的原型上找，而这个原型对象也有它的原型。这样一层层地寻找，就像一条链条将对象之间连接起来，这些链条就是原型链。</p>
+<h2 id="三种方法创建对象"><a href="#三种方法创建对象" class="headerlink" title="三种方法创建对象"></a>三种方法创建对象</h2><h3 id="1-字面量方式"><a href="#1-字面量方式" class="headerlink" title="1.字面量方式"></a>1.字面量方式</h3><p>字面量方式创建对象，它的原型就是Object.prototype(最顶层的原型对象)；</p>
+<pre><code>var obj = {};
+console.log(Object.getPrototypeOf(obj) === Object.prototype);
+console.log(obj.__proto__ === Object.prototype);
+
+
+//true
+//true</code></pre><h3 id="2-函数的构造调用创建对象"><a href="#2-函数的构造调用创建对象" class="headerlink" title="2.函数的构造调用创建对象"></a>2.函数的构造调用创建对象</h3><p>函数的构造调用创建对象，它的原型是这个函数的prototype指向的对象；</p>
+<pre><code>var f = function(name) {  this.name = name };
+f.prototype.getName = function() {return this.name };
+var obj1 = new f(&apos;javaScript&apos;);
+console.log(obj1.getName());
+console.log(obj1.__proto__ === f.prototype);
+
+//javaScript
+//true</code></pre><h3 id="3-Object-create-创建对象"><a href="#3-Object-create-创建对象" class="headerlink" title="3.Object.create()创建对象"></a>3.Object.create()创建对象</h3><p>Object.create()创建对象，它的原型是我们传入的对象；</p>
+<pre><code>var obj2 = {};
+var obj3 = Object.create(obj2);
+console.log(obj3.__proto__ === obj2);
+
+//true</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/09/21/javaScript继承/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>javaScript继承</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/07/01/简单说说微信小程序的底层原理/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>简单说说微信小程序的底层原理</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">zzzwyyy的个人博客</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+<button class="menu-trigger"></button>
+  <div class="menu">
+	<div class="menu-head">
+	   <span class="layer">
+	<div class="col">
+	  <div class="row for-pic">
+	   <div class="profile-pic">     
+	   <img src="/images/person_1.jpg" alt="zzzwyyy"> 
+	         </div>
+	  </div>
+	         <div class="row for-name">
+	         <p>zzzwyyy</p>
+	        <span class="tagline">坚持学习，坚持运动。</span>
+	          </div>
+	         </div> 
+	  </span>
+	</div>
+	<nav class="menu-container">
+	<ul class="menu-items">
+	<li><span class="item-icon"><i class="fa fa-home fa-fw"></i></span> <a href="/">首页</a></li>
+  <li><span class="item-icon"><i class="fa fa-archive fa-fw"></i></span> <a href="/archives/">归档</a></li> 
+	<li class="has-sub"> <span class="item-icon"> <i class="fa fa-bookmark fa-fw"></i> </span>
+	<span class="dropdown-heading">页面</span><ul>
+   <li> <a href="/guestbook">留言</a></li><li> <a href="/about">关于</a></li>
+	  </ul>
+	 </li>
+    <li class="has-sub"> <span class="item-icon"> <i class="fa fa-link fa-fw"></i> </span>
+	 <span class="dropdown-heading">友链</span><ul>
+   <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+	  </ul>
+	 </li>
+	</ul>
+	</nav>
+  </div>
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+
+
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

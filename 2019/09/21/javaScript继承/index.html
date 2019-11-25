@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>javaScript继承 | zzzwyyy的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="zzzwyyy">
+  <meta name="keywords" content>
+  <meta name="description" content="跳出舒适圈，保持学习的习惯。">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css"> <link rel="stylesheet" href="/css/style.css"> <link rel="stylesheet" href="/css/menu.css"> 
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "moonlit",
+	     });
+	}); 
+	</script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+</head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/page-cover.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><img src="/images/person_1.jpg"></div>
+    <span>2019-09-21</span>
+    <h2>javaScript继承</h2>
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><p>这是经典的继承方式。</p>
+<p>栗子：</p>
+<pre><code>function Father() {
+    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+}
+function Son() {
+    Father.call(this);  
+}
+var instance1 = new Son();
+alert( Father.prototype.isPrototypeOf(instance1))  //false
+instance1.colors.push(&quot;black&quot;);
+console.log(instance1.colors);   //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;black&quot;
+
+var instance2 = new Son();
+console.log(instance2.colors);  //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot; 可见引用类型值是独立的</code></pre><p>只是借用了Father构造函数，但并没有改变_proto_指针的指向，Father函数并不在instance1的原型链上。</p>
+<p>这个继承方法解决了两个问题：</p>
+<ol>
+<li>保证了引用类型属性值是独立的，不再被所有实例共享；</li>
+<li>子类型创建时也能向父类传递参数。</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><p>上一种方法只是调用了Father构造函数，但是没办法调用Father.prototype上的方法。</p>
+<p>组合继承将原型链和借用构造函数继承结合在一起，既能借用构造函数，也能继承原型链上的方法。</p>
+<p>栗子：</p>
+<pre><code>function Father1(name) {                  //使用借用构造函数方法继承
+    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;]; 
+    this.name = name; 
+} 
+Father1.prototype.sayName = function() {  //借用原型链继承此方法
+    alert(this.name); 
+};
+
+function Son1(name,age) {
+    Father1.call(this,name);
+    this.age = age; 
+}
+
+Son1.prototype = new Father1();
+Son1.prototype.sayAge = function() {
+    alert(this.age);
+};
+
+var instance3 = new Son1(&quot;peter&quot;,15);
+instance3.colors.push(&quot;black&quot;);
+console.log(instance3.colors)   //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;black&quot;
+instance3.sayName();    //&quot;peter&quot;
+instance3.sayAge();     //15
+
+var instance4 = new Son(&quot;liHua&quot;,20);
+console.log(instance4.colors);  //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;
+instance3.sayName();    //&quot;liHua&quot;
+instance3.sayAge();     //20</code></pre><p>这是Javascript最常用的继承方式，而且, instanceof 和 isPrototypeOf( )也能用于识别基于组合继承创建的对象.</p>
+<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><pre><code>var person = {
+    name : [&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;]
+};
+var anotherPerson = Object.create(person);
+anotherPerson.name.push(&quot;huTai&quot;);
+console.log(anotherPerson.name);          //&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;,&quot;huTai&quot;
+console.log(person.name);           //&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;,&quot;huTai&quot;</code></pre><p>将person对象传入Object函数中，得到一个新对象，这个新对象以person为原型，则原型中包含的引用类型值属性被共享了，既person.name不仅被person所有，而且也被anotherPerson共享。</p>
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象,最后返回被增强的对象。</p>
+<pre><code>var clonePerson = function(original) {
+    var clone = Object(original);  //通过Object函数创建一个以接收对象为原型的新对象
+    clone.sayHi = function() {  //增强这个对象
+        alert(&quot;Hi&quot;);
+    };
+    return clone;  //返回对象
+};</code></pre><h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><p>基本思路: 不必为了指定子类型的原型而调用超类型的构造函数</p>
+<pre><code>function extend(subClass,superClass){
+    var prototype = object(superClass.prototype);//创建对象
+    prototype.constructor = subClass;//增强对象
+    subClass.prototype = prototype;//指定对象
+}</code></pre><p>下面我们来看下extend的另一种更为有效的扩展.</p>
+<pre><code>function extend(subClass, superClass) {
+    var F = function() {};
+    F.prototype = superClass.prototype;
+    subClass.prototype = new F(); 
+    subClass.prototype.constructor = subClass;
+
+    subClass.superclass = superClass.prototype;
+    if(superClass.prototype.constructor == Object.prototype.constructor) {
+        superClass.prototype.constructor = superClass;
+    }
+}</code></pre><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>这篇笔记里用到的栗子出自<a href="https://juejin.im/post/58f94c9bb123db411953691b" target="_blank" rel="noopener">这里</a>。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/10/02/简单理解MVVM、数据双向绑定原理/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>简单理解MVVM、数据双向绑定原理</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/08/14/javaScript中的原型和原型链/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>javaScript中的原型和原型链</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">zzzwyyy的个人博客</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+<button class="menu-trigger"></button>
+  <div class="menu">
+	<div class="menu-head">
+	   <span class="layer">
+	<div class="col">
+	  <div class="row for-pic">
+	   <div class="profile-pic">     
+	   <img src="/images/person_1.jpg" alt="zzzwyyy"> 
+	         </div>
+	  </div>
+	         <div class="row for-name">
+	         <p>zzzwyyy</p>
+	        <span class="tagline">坚持学习，坚持运动。</span>
+	          </div>
+	         </div> 
+	  </span>
+	</div>
+	<nav class="menu-container">
+	<ul class="menu-items">
+	<li><span class="item-icon"><i class="fa fa-home fa-fw"></i></span> <a href="/">首页</a></li>
+  <li><span class="item-icon"><i class="fa fa-archive fa-fw"></i></span> <a href="/archives/">归档</a></li> 
+	<li class="has-sub"> <span class="item-icon"> <i class="fa fa-bookmark fa-fw"></i> </span>
+	<span class="dropdown-heading">页面</span><ul>
+   <li> <a href="/guestbook">留言</a></li><li> <a href="/about">关于</a></li>
+	  </ul>
+	 </li>
+    <li class="has-sub"> <span class="item-icon"> <i class="fa fa-link fa-fw"></i> </span>
+	 <span class="dropdown-heading">友链</span><ul>
+   <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+	  </ul>
+	 </li>
+	</ul>
+	</nav>
+  </div>
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+
+
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
