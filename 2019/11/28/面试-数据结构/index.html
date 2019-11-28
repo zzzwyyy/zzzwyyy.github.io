@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>简单理解MVVM、数据双向绑定原理 | zzzwyyy的个人博客</title>
+  <title>面试-数据结构 | zzzwyyy的个人博客</title>
   <meta name="keywords" content>
-  <meta name="description" content="简单理解MVVM、数据双向绑定原理 | zzzwyyy的个人博客">
+  <meta name="description" content="面试-数据结构 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="常见布局float布局、Position定位、table布局、弹性(flex)布局、网格(grid)布局、（圣杯布局、双飞翼布局、calc()函数） 三栏布局左右定宽（200px），中间自适应 大概就是这样的：  如果中间部分height比较大，那效果是这样:  1.float布局模板部分：  &amp;lt;body&amp;gt;     &amp;lt;div class=&amp;apos;wrap&amp;apos;&amp;gt;">
 <meta name="keywords" content="CSS,CSS-面试">
@@ -307,9 +307,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-简单理解MVVM、数据双向绑定原理" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-面试-数据结构" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">简单理解MVVM、数据双向绑定原理</h1>
+        <h1 class="article-title">面试-数据结构</h1>
     
     <div class="article-meta">
         
@@ -319,7 +319,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-16 16:18:23'>2019-10-02 16:11</time>
+        创建时间:<time class="date" title='更新时间: 2019-11-28 22:27:26'>2019-11-28 22:26</time>
         
     </div>
     <div class="article-meta">
@@ -341,7 +341,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是MVVM？"><span class="toc-text">什么是MVVM？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue框架"><span class="toc-text">Vue框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据双向绑定原理"><span class="toc-text">数据双向绑定原理</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -357,29 +357,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是MVVM？"><a href="#什么是MVVM？" class="headerlink" title="什么是MVVM？"></a>什么是MVVM？</h2><p><strong>MVVM定义</strong>：是Model-View-ViewModel（模型-视图-视图模型）的缩写；Model是数据模型，既后端传过来的数据；View是视图层，既我们看到的页面；而ViewModel是连接Model和View的中间桥梁，也就是说在MVVM的框架下，View和Model是不能直接通信的。它分为两个方向：一是将后端传过来的数据转化为我们看到的页面（数据模型转化为视图层），实现方式是数据绑定；二是将我们看到的页面转化为数据传到后端（视图层转化为数据模型），实现方式是DOM事件监听；将这两个方向都实现的，被称为<strong>双向传递</strong>。</p>
-<p>MVVM的流程如下，ViewModel借助observer观察者，监控Model的数据变化，监听View的DOM节点。</p>
-<p><img src="1.png" alt="MVVM的流程"></p>
-<h2 id="Vue框架"><a href="#Vue框架" class="headerlink" title="Vue框架"></a>Vue框架</h2><p>Vue是基于MVVM模式实现的一套框架，在Vue中：Model:指的是js中的数据，如对象，数组等等；View:指的是页面视图；viewModel:指的是vue实例化对象。Vue最独特的特性：响应式系统。Vue是响应式的（reactive），也就是说当我们的数据变更时，Vue会帮你更新所有网页中用到它的地方。可以到<a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">官网</a>查看。</p>
-<h2 id="数据双向绑定原理"><a href="#数据双向绑定原理" class="headerlink" title="数据双向绑定原理"></a>数据双向绑定原理</h2><p>Vue数据双向绑定原理用一句话可以简单概括：当我们把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 <code>Object.defineProperty</code> 把这些属性全部转为 <code>getter</code>/<code>setter</code>，它们让 Vue 能够追踪依赖，在属性被访问和修改时通知变更。</p>
-<p><img src="2.png" alt="Vue数据双向绑定"></p>
-<ul>
-<li>实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者 </li>
-<li>实现一个指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数</li>
-<li>实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图 </li>
-<li>mvvm入口函数，整合以上三者</li>
+        <ul>
+<li><p>队列：一种线性表，只允许在表的前端进行删除操作，在表的后端进行插入操作<br>  —— 特点：先进后出<br>  —— 如何用数组实现：shift()实现出队列，push()实现入队列</p>
+</li>
+<li><p>栈：一种线性表，只允许在表尾进行插入和删除操作。这一端称为栈顶，对应一端称为栈底<br>  —— 特点：后进先出<br>  —— 如何用数组实现：push()实现压栈，pop()实现出栈</p>
+</li>
+<li><p>链表：一种非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针实现的。每个节点包括两个部分，存储数据的数据域和存储下一个节点地址的指针域。</p>
+<p>  —— 分类：</p>
+<pre><code>—— 单向链表：链表的连接方向是向后连接的
+—— 双向链表：链表节点中，除了存储下一个节点地址的指针，还有一个存放上一个节点地址的指针
+—— 循环链表：普通链表的最后一个节点的next存储为null，循环链表的最后一个节点的next指向头节点</code></pre><p>  —— 特点：非连续、非顺序<br>  —— 如果使用构造函数实现一个链表节点：</p>
+<pre><code>function Node(val) {
+    this.value = val;
+    this.next = null;
+}</code></pre><p>  —— 如何将节点构成链表：</p>
+<pre><code>let pHead = new Node(1);
+pHead.next = new Node(2);</code></pre></li>
+<li><p>树：由n个有限节点组成一个具有层次结构的集合。每个节点有零个或多个子节点；没有父节点的节点称为根节点，每个非根节点只有一个父节点、</p>
+<p>  —— 常见的树类型:</p>
+<pre><code>—— 无序树：树的任意节点的子节点没有顺序关系
+—— 有序树：树的任意节点的子节点有顺序关系
+—— 二叉树（用的最多）：树的任意至多包含两棵子树
+—— 满二叉树：叶子节点都在同一层并且除叶子节点外的所有节点都有两个子节点
+—— 二叉查找树（又称二叉搜索树）：
+    若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值； 若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值； 任意节点的左、右子树也分别为二叉查找树； 
+    没有键值相等的节点。</code></pre><p>  —— 二叉树的遍历序列：</p>
+<pre><code>—— 先序遍历：先访问根节点，再访问左节点，然后右节点
+—— 中序遍历：先访问左节点，再访问根节点，然后右节点
+—— 后续遍历：先访问左节点，再访问右节点，然后根节点</code></pre><p>  —— 如何使用构造函数实现一个二叉树节点：</p>
+<pre><code>function Node(val) {
+    this.value = val;
+    this.left = null;
+    this.right = null;
+}</code></pre><p>  —— 如何将节点构成二叉树：</p>
+<pre><code>let root = new Node(1);
+let left = new Node(2);
+let right = new Node(3);
+root.left = left;
+root.right = right;</code></pre></li>
 </ul>
-<p><strong>注意</strong>： 把一个普通对象传给 Vue 实例作为它的 data 选项，Vue.js 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。这是 ES5 特性，不能打补丁实现，这便是为什么 Vue.js 不支持 IE8 及更低版本。</p>
-<pre><code>var vm = new Vue({
-  data:{
-    a:1
-  }
-})
 
-// `vm.a` 是响应式的
-
-vm.b = 2
-// `vm.b` 是非响应式的</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
     </div>
@@ -388,12 +405,12 @@ vm.b = 2
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>简单理解MVVM、数据双向绑定原理</p>
+    <p><span class="copy-title">文章标题:</span>面试-数据结构</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-10-02, 16:11:58</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-16, 16:18:23</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/02/简单理解MVVM、数据双向绑定原理/" title="简单理解MVVM、数据双向绑定原理">http://yoursite.com/2019/10/02/简单理解MVVM、数据双向绑定原理/</a>
+    <p><span class="copy-title">发布时间:</span>2019-11-28, 22:26:39</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-28, 22:27:26</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/28/面试-数据结构/" title="面试-数据结构">http://yoursite.com/2019/11/28/面试-数据结构/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
