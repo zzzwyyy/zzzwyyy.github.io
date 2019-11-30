@@ -6,17 +6,29 @@
   <meta name="keywords" content>
   <meta name="description" content="面试-数据结构 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="队列：一种线性表，只允许在表的前端进行删除操作，在表的后端进行插入操作  —— 特点：先进后出  —— 如何用数组实现：shift()实现出队列，push()实现入队列  栈：一种线性表，只允许在表尾进行插入和删除操作。这一端称为栈顶，对应一端称为栈底  —— 特点：后进先出  —— 如何用数组实现：push()实现压栈，pop()实现出栈  链表：一种非连续、非顺序的存储结构，数据元素的逻辑顺">
+<meta name="description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试-数据结构">
-<meta property="og:url" content="http://yoursite.com/2019/11/28/面试-数据结构/index.html">
+<meta property="og:title" content="MySQL简单学习增删改查命令">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="队列：一种线性表，只允许在表的前端进行删除操作，在表的后端进行插入操作  —— 特点：先进后出  —— 如何用数组实现：shift()实现出队列，push()实现入队列  栈：一种线性表，只允许在表尾进行插入和删除操作。这一端称为栈顶，对应一端称为栈底  —— 特点：后进先出  —— 如何用数组实现：push()实现压栈，pop()实现出栈  链表：一种非连续、非顺序的存储结构，数据元素的逻辑顺">
+<meta property="og:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-28T14:27:26.167Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_3.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_workbench.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_2.png">
+<meta property="og:updated_time" content="2019-11-16T08:29:27.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面试-数据结构">
-<meta name="twitter:description" content="队列：一种线性表，只允许在表的前端进行删除操作，在表的后端进行插入操作  —— 特点：先进后出  —— 如何用数组实现：shift()实现出队列，push()实现入队列  栈：一种线性表，只允许在表尾进行插入和删除操作。这一端称为栈顶，对应一端称为栈底  —— 特点：后进先出  —— 如何用数组实现：push()实现压栈，pop()实现出栈  链表：一种非连续、非顺序的存储结构，数据元素的逻辑顺">
+<meta name="twitter:title" content="MySQL简单学习增删改查命令">
+<meta name="twitter:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -143,13 +155,45 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(9)</small></div></li>
+    <li><div class="all active">全部文章<small>(10)</small></div></li>
     
         
             
-            <li><div data-rel="CSS">CSS<small>(1)</small></div>
+            <li><div data-rel="CSS"><i class="fold iconfont icon-right"></i>CSS<small>(1)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="面试">面试<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
                 
             </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(1)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="面试">面试<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
             
         
     
@@ -163,7 +207,7 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="9">
+<input type="hidden" id="yelog_site_posts_number" value="10">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -198,15 +242,19 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color4">CSS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color1">javaScript</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">javaScript面试</a>
     </li>
     
     <div class="clearfix"></div>
@@ -215,17 +263,9 @@
     
     <nav id="title-list-nav">
         
-        <a  class="CSS "
-           href="/2019/11/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS,CSS-面试"
-           data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-11-24 17:41:16">2019/11/24</span>
-        </a>
-        
         <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS,CSS-面试"
+           data-tag="CSS-面试,CSS"
            data-author="" >
             <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
             <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
@@ -240,19 +280,27 @@
         </a>
         
         <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
            href="/2018/08/03/javaScript中的变量提升和函数提升/"
            data-tag="javaScript"
            data-author="" >
             <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
             <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
+        </a>
+        
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS-面试,CSS"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+        </a>
+        
+        <a  class="javaScript 面试 "
+           href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
+           data-tag="javaScript,javaScript面试"
+           data-author="" >
+            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
+            <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
         </a>
         
         <a  class=""
@@ -264,11 +312,19 @@
         </a>
         
         <a  class=""
-           href="/2019/07/01/简单说说微信小程序的底层原理/"
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/28/面试-数据结构/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
-            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
         <a  class=""
@@ -280,11 +336,11 @@
         </a>
         
         <a  class=""
-           href="/2019/11/28/面试-数据结构/"
+           href="/2019/07/01/简单说说微信小程序的底层原理/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
+            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
+            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
         </a>
         
     </nav>
@@ -446,7 +502,7 @@ root.right = right;</code></pre></li>
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS','#CSS-面试','#javaScript',],
+            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>MySQL简单学习增删改查命令 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content>
-  <meta name="description" content="MySQL简单学习增删改查命令 | zzzwyyy的个人博客">
+  <title>CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content=" CSS-面试 , CSS ">
+  <meta name="description" content="CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
 <meta property="og:type" content="article">
@@ -355,19 +355,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-MySQL简单学习增删改查命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="title-CSS-三栏布局的几种实现方式" class="article article-type-title" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">MySQL简单学习增删改查命令</h1>
+        <h1 class="article-title">CSS-三栏布局的几种实现方式</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="CSS">CSS</a>/
+            
+                <a  data-rel="面试">面试</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color2">CSS-面试</a>
+            
+            <a class="color4">CSS</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-16 16:29:27'>2019-10-09 16:28</time>
+        创建时间:<time class="date" title='更新时间: 2019-11-30 22:43:12'>2019-01-24 17:41</time>
         
     </div>
     <div class="article-meta">
@@ -389,7 +405,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql的下载安装"><span class="toc-text">MySql的下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作数据库"><span class="toc-text">操作数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建库"><span class="toc-text">建库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建表"><span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删改查"><span class="toc-text">增删改查</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见布局"><span class="toc-text">常见布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三栏布局"><span class="toc-text">三栏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-float布局"><span class="toc-text">1.float布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Position定位"><span class="toc-text">2.Position定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-table布局"><span class="toc-text">3.table布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-弹性（flex）布局"><span class="toc-text">4.弹性（flex）布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-网格布局"><span class="toc-text">5.网格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-圣杯布局"><span class="toc-text">6.圣杯布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-双飞翼布局"><span class="toc-text">7. 双飞翼布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-calc-函数"><span class="toc-text">8.calc()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结尾"><span class="toc-text">结尾</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -405,67 +421,341 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。</p>
-<h2 id="MySql的下载安装"><a href="#MySql的下载安装" class="headerlink" title="MySql的下载安装"></a>MySql的下载安装</h2><ol>
-<li>下载MySQL数据库可以访问官方网站：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></li>
-</ol>
-<p><img src="install_1.png" alt></p>
-<p><img src="install_2.png" alt></p>
-<ol start="2">
-<li>选择合适的下载就可以啦</li>
-</ol>
-<p><img src="install_3.png" alt></p>
-<p><img src="install_4.png" alt></p>
-<ol start="3">
-<li>我们还要下载一个workbench操作mysql客户端，可视化操作</li>
-</ol>
-<p><img src="install_workbench.png" alt></p>
-<p>或者 <a href="https://dev.mysql.com/downloads/workbench/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/workbench/</a></p>
-<ol start="4">
-<li>然后就是傻瓜式安装了，这里面会让你填写密码，一定要记住这个密码哦！！</li>
-</ol>
-<h2 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h2><p>点击这个小圆圈，就会出现一个框</p>
-<p><img src="set_1.png" alt></p>
-<p>进去就是这个样子的，我们执行<code>show databases</code>查看一下，注意这里的闪电标识，如果没有选中语句，点击这个闪电，代表执行所有的命令，如果想只执行一个命令，就选中那个命令，然后点击闪电</p>
-<p><img src="set_2.png" alt></p>
-<h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3><p>点击下图的图标，在Name框里输入你的库的名字，然后点击Apply就可以了，他还会再弹出一个框，继续点击Apply，我们的库就建好啦！<br><img src="set_object_1.png" alt></p>
-<p>如果你想要确认有没有建库成功，可以再执行以下<code>show databases</code>就可以啦</p>
-<p><img src="set_object_2.png" alt></p>
-<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><p>在左侧就能找到我们刚才建的库了，然后我们只需要在Tables里建表就可以啦</p>
-<p><img src="set_table_1.png" alt></p>
+        <h2 id="常见布局"><a href="#常见布局" class="headerlink" title="常见布局"></a>常见布局</h2><p>float布局、Position定位、table布局、弹性(flex)布局、网格(grid)布局、（圣杯布局、双飞翼布局、calc()函数）</p>
+<h2 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h2><p>左右定宽（200px），中间自适应</p>
+<p>大概就是这样的：</p>
+<p><img src="%E6%95%88%E6%9E%9C%E5%9B%BE_1.png" alt></p>
+<p>如果中间部分<code>height</code>比较大，那效果是这样:</p>
+<p><img src="%E6%95%88%E6%9E%9C%E5%9B%BE_2.png" alt></p>
+<h3 id="1-float布局"><a href="#1-float布局" class="headerlink" title="1.float布局"></a>1.float布局</h3><p>模板部分： </p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&apos;wrap&apos;&gt;
+        &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;  // 注意这里！
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;    // 清除浮动，不然可能会影响其他元素的显示
+    }
+    .left {
+        float: left;
+        width: 200px;       
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        height: 200px;
+        background: plum;
+        margin-left: 200px;    // 这个非常有必要！
+        margin-right: 200px;   // 这个非常有必要！
+    }
+    .right {
+        float: right;
+        width: 200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意：</p>
 <ul>
-<li>Column name – 列名</li>
-<li>Datatype – 数据类型</li>
-<li>PK – 主键，保证不能重复</li>
-<li>NN – 不能为空</li>
-<li>AI – 自动增加</li>
-<li>default – 默认值</li>
-</ul>
-<p><img src="set_table_2.png" alt></p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>use &lt;库名&gt;</code>  – 开始使用这个数据库</p>
-<p><code>show tables</code> – 显示数据库中所有的表</p>
-<p><code>--show tables</code> – 加上两个横杠，这行代码就被注释了</p>
-<h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><ul>
-<li><p><strong>增（插入数据）</strong></p>
-<pre><code>insert into users(realname) values(&apos;zhangsan&apos;);   //users是表名</code></pre></li>
-<li><p><strong>查</strong></p>
+<li><p>DOM上<strong>左右元素要先加上</strong>，将中间元素放最后！不然就会变成下面这个样子：<br><img src="float_1.png" alt></p>
+</li>
+<li><p><code>margin-left: 200px</code>和<code>margin-right: 200px</code>非常有必要！因为如果一旦中间元素的高度大于两边时，就是这个样子了：<br><img src="float_2.png" alt> </p>
+</li>
+<li><p>因为float浮动，元素脱离了文档流，怕会影响其他元素显示，所以一定要记得<strong>清除浮动</strong>，这里是用BFC清除浮动，也有其他清除浮动的方法，可以自行了解一下，毕竟面试还是经常问到的</p>
 </li>
 </ul>
-<p>&nbsp; &nbsp; &nbsp; 查询所有信息（列）</p>
-<pre><code>select * from users;     // * 表示将表中所有的列</code></pre><p>&nbsp; &nbsp; &nbsp;查询部分信息（列）</p>
-<pre><code>select id,username from users;    // id,username就被查询出来了</code></pre><p>&nbsp; &nbsp; &nbsp;查询匹配信息（列）</p>
-<pre><code>select * from users where username = &apos;zhangsan&apos; and password = &apos;123&apos;;  // where 后面跟条件</code></pre><p>&nbsp; &nbsp; &nbsp;模糊查询</p>
-<pre><code>select * from users where username like &apos;% zhang %&apos;;  //注意要用% %将条件包裹</code></pre><p>&nbsp; &nbsp; &nbsp;排序方式</p>
-<pre><code>select * from users where username like &apos;%zhang%&apos; order by id;   //这里是按照id顺序排列</code></pre><ul>
-<li><strong>改</strong></li>
+<h3 id="2-Position定位"><a href="#2-Position定位" class="headerlink" title="2.Position定位"></a>2.Position定位</h3><p>模板部分： </p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&apos;wrap&apos;&gt;
+        &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;  // 和float布局一样！
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden; 
+        position: relative;   // Position定位
+    }
+    .left {
+        position: absolute;   // 绝对定位
+        left: 0;              // 靠左靠左
+        width: 200px;       
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        height: 300px;
+        background: plum;
+        margin-left: 200px;    // 这个和float布局注意里说的一样！
+        margin-right: 200px;   // 这个就不必多说了吧！
+    }
+    .right {
+        position: absolute;  // 绝对定位
+        right: 0;            // 靠右靠右
+        width: 200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意：</p>
+<ul>
+<li>和float布局注意点一样啦！</li>
 </ul>
-<p>&nbsp; &nbsp; &nbsp;MySql运行在safe-updates模式下，该模式会导致非主键条件下无法执行update或者delete命令，执行命令SET SQL_SAFE_UPDATES = 0;修改下数据库模式</p>
-<pre><code>SET SQL_SAFE_UPDATES = 0 ;</code></pre><p>&nbsp; &nbsp; &nbsp;然后带条件修改</p>
-<pre><code>update users set realname=&apos;李四2&apos; where username=&apos;lisi&apos;;</code></pre><ul>
-<li><p><strong>删</strong></p>
-<pre><code>delete from users where id=&apos;4&apos;;  //删除users表中id=4的数据</code></pre><p>&nbsp; &nbsp; &nbsp;但是应用的时候一般用的是<strong>软删除</strong>，在表中加一列名为status的列，默认值为1，想删除的行只需要用<code>updata</code>将status的值改为0就好了，相当于做一个标记，<code>select</code>时加上条件<code>status = 1</code>就可以了</p>
-</li>
+<h3 id="3-table布局"><a href="#3-table布局" class="headerlink" title="3.table布局"></a>3.table布局</h3><p>模板部分： </p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&apos;wrap&apos;&gt;
+        &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;  //中间元素这次不是放最后了
+        &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre><p>css部分：</p>
+<pre><code>/*清除浏览器默认边距*/
+* {
+    padding: 0;
+    margin: 0;
+}
+.wrap {
+    border: 1px solid red;
+    overflow: hidden;
+    display: table;         // 表格布局
+    width: 100%;            // 这个也是一个小细节
+}
+.left {
+    display: table-cell;     // 单元格
+    width: 200px;
+    height: 200px;
+    background: palevioletred;
+}
+.content {
+    display: table-cell;   // 单元格
+    height: 300px;         // 这里中间元素比两边长
+    background: plum;
+}
+.right {
+    display: table-cell;   // 单元格
+    width: 200px;
+    height: 200px;
+    background: powderblue; 
+}
+&lt;/style&gt;</code></pre><p>注意：</p>
+<ul>
+<li>DOM上得按照左中右放置了，不然就会出现左右元素先出现的情况了<br><img src="table_1.png" alt></li>
+<li>虽然我们给中间元素设置的<code>height</code>大于左右元素，但在显示的时候，三个元素是等高的（参照上面的图），而且高度是由三个元素中最大高度来决定</li>
+<li><code>width: 100%</code>也是一个该注意的小细节，因为如果我们没有给父元素设置宽度，就会变成酱紫，后面空出来了：<br><img src="table_2.png" alt></li>
 </ul>
+<h3 id="4-弹性（flex）布局"><a href="#4-弹性（flex）布局" class="headerlink" title="4.弹性（flex）布局"></a>4.弹性（flex）布局</h3><p>模板部分： </p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&apos;wrap&apos;&gt;
+        &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;  //中间元素这次不是放最后了
+        &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;
+        display: flex;     // 弹性布局
+    }
+    .left {
+        width: 200px;
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        flex: 1;        // 扩大比例为1，自动填满多余空间
+        height: 300px;
+        background: plum;
+    }
+    .right {
+        width: 200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意:</p>
+<ul>
+<li>这里唯一要知道的就是<code>flex</code>了，是<code>flex-grow</code>（增长比例）和<code>flex-shrink</code>（缩小比例）和<code>flex-basis</code>（默认大小）的缩写。</li>
+</ul>
+<h3 id="5-网格布局"><a href="#5-网格布局" class="headerlink" title="5.网格布局"></a>5.网格布局</h3><p>模板部分： </p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&apos;wrap&apos;&gt;
+        &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;  //中间元素这次不是放最后了
+        &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;
+        display: grid;  // 网格布局
+        grid-template-columns: 200px auto 200px;  // 左边宽度200px,中间自适应，右边宽度200px
+    }
+    .left {
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        height: 300px;
+        background: plum;
+    }
+    .right {
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意：</p>
+<ul>
+<li>如果想让三个元素等高，可以直接设置<code>grid-template-rows: 200px</code></li>
+</ul>
+<h3 id="6-圣杯布局"><a href="#6-圣杯布局" class="headerlink" title="6.圣杯布局"></a>6.圣杯布局</h3><p>模板部分：</p>
+<pre><code>&lt;div class=&apos;wrap&apos;&gt;
+    &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt;   // 中间元素先渲染
+    &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt; 
+    &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;                     
+&lt;/div&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;
+        padding-left: 200px;     
+        padding-right: 200px;
+    }
+    .left {
+        position: relative;
+        left: -200px;
+        float: left;
+        margin-left: -100%;
+        width: 200px;
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        float: left;
+        width: 100%;
+        height: 300px;
+        background: plum;
+    }
+    .right {
+        float: left;
+        margin-right: -200px;
+        width: 200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意：</p>
+<ul>
+<li>中间元素在DOM结构上优先，先行渲染</li>
+<li>圣杯布局详细实现过程移步<a href>这里</a></li>
+</ul>
+<h3 id="7-双飞翼布局"><a href="#7-双飞翼布局" class="headerlink" title="7. 双飞翼布局"></a>7. 双飞翼布局</h3><p>模板部分：</p>
+<pre><code>&lt;div class=&apos;wrap&apos;&gt;
+    &lt;div class=&apos;wrap-content&apos;&gt;
+        &lt;div class=&apos;content&apos;&gt;中间元素自适应&lt;/div&gt; 
+    &lt;/div&gt;
+    &lt;div class=&apos;left&apos;&gt;左边元素定宽&lt;/div&gt; 
+    &lt;div class=&apos;right&apos;&gt;右边元素定宽&lt;/div&gt;                   
+&lt;/div&gt;</code></pre><p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;
+        width: 100%;
+    }
+    .left {
+        float: left;
+        width: 200px;
+        margin-left: -100%;
+        height: 200px;
+        background: palevioletred;
+    }
+    .wrap-content{
+        float: left;
+        width: 100%;
+    }
+    .content {
+        margin-left: 200px;
+        margin-right: 200px;
+        height: 300px;
+        background: plum;
+    }
+    .right {
+        float: left;
+        width: 200px;
+        margin-left: -200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><p>注意：</p>
+<ul>
+<li>中间元素在DOM结构上优先，先行渲染</li>
+<li>双飞翼布局与圣杯布局不同的是，中间的<code>div</code>包裹了一个<code>div</code>，且将原本<code>.content</code>的<code>float: left;``width: 100%;</code>移到包裹<code>div</code>上</li>
+<li>双飞翼布局详细实现过程移步<a href>这里</a></li>
+</ul>
+<h3 id="8-calc-函数"><a href="#8-calc-函数" class="headerlink" title="8.calc()函数"></a>8.calc()函数</h3><p>模板部分：<br>    <body><br>        <div class="wrap"><br>            <div class="left">左边元素定宽</div><br>            <div class="content">中间元素自适应</div><br>            <div class="right">右边元素定宽</div><br>        </div><br>    </body></p>
+<p>css部分：</p>
+<pre><code>&lt;style&gt;
+    /*清除浏览器默认边距*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        border: 1px solid red;
+        overflow: hidden;
+    }
+    .left {
+        float: left;
+        width: 200px;
+        height: 200px;
+        background: palevioletred;
+    }
+    .content {
+        float: left;
+        width: calc(100% - 400px);   // 动态计算
+        height: 300px;
+        background: plum;
+    }
+    .right {
+        float: left;
+        width: 200px;
+        height: 200px;
+        background: powderblue; 
+    }
+&lt;/style&gt;</code></pre><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>以上就是作为前端菜鸡的我的一点点总结啦，有错误一定要告诉我！！请务必救救孩子吧！</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -475,12 +765,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>MySQL简单学习增删改查命令</p>
+    <p><span class="copy-title">文章标题:</span>CSS-三栏布局的几种实现方式</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-10-09, 16:28:27</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-16, 16:29:27</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/09/MySQL简单学习增删改查命令/" title="MySQL简单学习增删改查命令">http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/</a>
+    <p><span class="copy-title">发布时间:</span>2019-01-24, 17:41:16</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-30, 22:43:12</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/01/24/CSS-三栏布局的几种实现方式/" title="CSS-三栏布局的几种实现方式">http://yoursite.com/2019/01/24/CSS-三栏布局的几种实现方式/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

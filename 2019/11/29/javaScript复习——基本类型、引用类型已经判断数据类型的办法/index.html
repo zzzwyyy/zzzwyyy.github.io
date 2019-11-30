@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>MySQL简单学习增删改查命令 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content>
-  <meta name="description" content="MySQL简单学习增删改查命令 | zzzwyyy的个人博客">
+  <title>javaScript复习——基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content=" javaScript , javaScript面试 ">
+  <meta name="description" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
 <meta property="og:type" content="article">
@@ -355,19 +355,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-MySQL简单学习增删改查命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-javaScript复习——基本类型、引用类型已经判断数据类型的办法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">MySQL简单学习增删改查命令</h1>
+        <h1 class="article-title">javaScript复习——基本类型、引用类型已经判断数据类型的办法</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="javaScript">javaScript</a>/
+            
+                <a  data-rel="面试">面试</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">javaScript</a>
+            
+            <a class="color3">javaScript面试</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-16 16:29:27'>2019-10-09 16:28</time>
+        创建时间:<time class="date" title='更新时间: 2019-11-30 22:46:46'>2019-11-29 23:15</time>
         
     </div>
     <div class="article-meta">
@@ -389,7 +405,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql的下载安装"><span class="toc-text">MySql的下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作数据库"><span class="toc-text">操作数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建库"><span class="toc-text">建库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建表"><span class="toc-text">建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删改查"><span class="toc-text">增删改查</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原始值和引用值类型和区别"><span class="toc-text">原始值和引用值类型和区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的存放"><span class="toc-text">变量的存放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原始值和引用值的传递问题"><span class="toc-text">原始值和引用值的传递问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断数据类型"><span class="toc-text">如何判断数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof"><span class="toc-text">typeof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof"><span class="toc-text">instanceof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-toString-call"><span class="toc-text">Object.prototype.toString.call()</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -405,67 +421,97 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。</p>
-<h2 id="MySql的下载安装"><a href="#MySql的下载安装" class="headerlink" title="MySql的下载安装"></a>MySql的下载安装</h2><ol>
-<li>下载MySQL数据库可以访问官方网站：<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">https://www.mysql.com/downloads/</a></li>
-</ol>
-<p><img src="install_1.png" alt></p>
-<p><img src="install_2.png" alt></p>
-<ol start="2">
-<li>选择合适的下载就可以啦</li>
-</ol>
-<p><img src="install_3.png" alt></p>
-<p><img src="install_4.png" alt></p>
-<ol start="3">
-<li>我们还要下载一个workbench操作mysql客户端，可视化操作</li>
-</ol>
-<p><img src="install_workbench.png" alt></p>
-<p>或者 <a href="https://dev.mysql.com/downloads/workbench/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/workbench/</a></p>
-<ol start="4">
-<li>然后就是傻瓜式安装了，这里面会让你填写密码，一定要记住这个密码哦！！</li>
-</ol>
-<h2 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h2><p>点击这个小圆圈，就会出现一个框</p>
-<p><img src="set_1.png" alt></p>
-<p>进去就是这个样子的，我们执行<code>show databases</code>查看一下，注意这里的闪电标识，如果没有选中语句，点击这个闪电，代表执行所有的命令，如果想只执行一个命令，就选中那个命令，然后点击闪电</p>
-<p><img src="set_2.png" alt></p>
-<h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3><p>点击下图的图标，在Name框里输入你的库的名字，然后点击Apply就可以了，他还会再弹出一个框，继续点击Apply，我们的库就建好啦！<br><img src="set_object_1.png" alt></p>
-<p>如果你想要确认有没有建库成功，可以再执行以下<code>show databases</code>就可以啦</p>
-<p><img src="set_object_2.png" alt></p>
-<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><p>在左侧就能找到我们刚才建的库了，然后我们只需要在Tables里建表就可以啦</p>
-<p><img src="set_table_1.png" alt></p>
+        <h2 id="原始值和引用值类型和区别"><a href="#原始值和引用值类型和区别" class="headerlink" title="原始值和引用值类型和区别"></a>原始值和引用值类型和区别</h2><p>在javaScript中，变量可以储存两种值：原始值和引用值。</p>
 <ul>
-<li>Column name – 列名</li>
-<li>Datatype – 数据类型</li>
-<li>PK – 主键，保证不能重复</li>
-<li>NN – 不能为空</li>
-<li>AI – 自动增加</li>
-<li>default – 默认值</li>
-</ul>
-<p><img src="set_table_2.png" alt></p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>use &lt;库名&gt;</code>  – 开始使用这个数据库</p>
-<p><code>show tables</code> – 显示数据库中所有的表</p>
-<p><code>--show tables</code> – 加上两个横杠，这行代码就被注释了</p>
-<h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><ul>
-<li><p><strong>增（插入数据）</strong></p>
-<pre><code>insert into users(realname) values(&apos;zhangsan&apos;);   //users是表名</code></pre></li>
-<li><p><strong>查</strong></p>
+<li><p>基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol</p>
+</li>
+<li><p>引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。</p>
 </li>
 </ul>
-<p>&nbsp; &nbsp; &nbsp; 查询所有信息（列）</p>
-<pre><code>select * from users;     // * 表示将表中所有的列</code></pre><p>&nbsp; &nbsp; &nbsp;查询部分信息（列）</p>
-<pre><code>select id,username from users;    // id,username就被查询出来了</code></pre><p>&nbsp; &nbsp; &nbsp;查询匹配信息（列）</p>
-<pre><code>select * from users where username = &apos;zhangsan&apos; and password = &apos;123&apos;;  // where 后面跟条件</code></pre><p>&nbsp; &nbsp; &nbsp;模糊查询</p>
-<pre><code>select * from users where username like &apos;% zhang %&apos;;  //注意要用% %将条件包裹</code></pre><p>&nbsp; &nbsp; &nbsp;排序方式</p>
-<pre><code>select * from users where username like &apos;%zhang%&apos; order by id;   //这里是按照id顺序排列</code></pre><ul>
-<li><strong>改</strong></li>
+<h2 id="变量的存放"><a href="#变量的存放" class="headerlink" title="变量的存放"></a>变量的存放</h2><ul>
+<li>基本类型的数据存放在<strong>栈内存</strong>中，基本值在内存中占有固定大小的空间，在栈内存中按值查找。（这里需要注意的是，虽然字符串长度可变，但是ECMAscript还是将它归为基本类型）</li>
+<li>引用类型的数据存放在<strong>堆内存</strong>中，引用值的大小不固定，但是他们的内存地址的固定大小的，因此可以将引用值的内存地址存放在栈内存中。也就是当查询引用类型的变量时，先<strong>从栈中读取内存地址</strong>，再<strong>通过地址找到堆中的值</strong></li>
 </ul>
-<p>&nbsp; &nbsp; &nbsp;MySql运行在safe-updates模式下，该模式会导致非主键条件下无法执行update或者delete命令，执行命令SET SQL_SAFE_UPDATES = 0;修改下数据库模式</p>
-<pre><code>SET SQL_SAFE_UPDATES = 0 ;</code></pre><p>&nbsp; &nbsp; &nbsp;然后带条件修改</p>
-<pre><code>update users set realname=&apos;李四2&apos; where username=&apos;lisi&apos;;</code></pre><ul>
-<li><p><strong>删</strong></p>
-<pre><code>delete from users where id=&apos;4&apos;;  //删除users表中id=4的数据</code></pre><p>&nbsp; &nbsp; &nbsp;但是应用的时候一般用的是<strong>软删除</strong>，在表中加一列名为status的列，默认值为1，想删除的行只需要用<code>updata</code>将status的值改为0就好了，相当于做一个标记，<code>select</code>时加上条件<code>status = 1</code>就可以了</p>
-</li>
+<p>在计算机的数据结构中，栈比堆的与运算速度快，而将数组扩充、对象属性的添加等操作放在堆中，可以保证栈的效率不被影响。</p>
+<h2 id="原始值和引用值的传递问题"><a href="#原始值和引用值的传递问题" class="headerlink" title="原始值和引用值的传递问题"></a>原始值和引用值的传递问题</h2><p>这部分是面试和笔记常见的考点，敲黑板，都给我记!</p>
+<ul>
+<li><p>原始值的传递：当我们把一个原始变量传递给另一个原始变量时，其实是把栈空间中的内容复制到另一个栈空间中，这时候<strong>两个原始值传递互并不影响</strong>。</p>
+<pre><code>let a = 1;
+let b = a ;
+a = 2;
+console.log(a);    // 2
+console.log(b);    // 1</code></pre></li>
+<li><p>引用值传递： 其实变量中<strong>存放的是指向引用值的指针</strong>，所以当我们将一个引用变量传递给另一个引用变量时，其实是将这个指针复制了一份传递给另一个变量。简单来说，这<strong>两个变量都指向同一个引用值</strong>（假设是对象）。当通过方法修改其中一个变量引用的对象的属性后，通过另一个变量访问这个对象，会发现属性值也随之改变了。</p>
+<pre><code>let a = {
+    value: 1
+};
+let b = a;
+a.value = 2;
+console.log(a.value);    // 2
+console.log(b.value);    // 2</code></pre></li>
 </ul>
+<h2 id="如何判断数据类型"><a href="#如何判断数据类型" class="headerlink" title="如何判断数据类型"></a>如何判断数据类型</h2><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>typeof是一元操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回结果用该类型的字符串（全小写）表示,共7种：number、string、boolean、symbol、object、function、undefined</p>
+<pre><code>typeof 1;   // number 有效判断
+typeof &quot;hello world&quot;;  // string 有效判断
+typeof true;    // boolean 有效判断
+typeof Symbol();   // symblo 有效判断
+typeof new Function;   // function 有效判断
+typeof undefined;    // undefined 有效判断
+
+typeof null;   // object  无效判断
+typeof new Object;   // object 无效判断
+typeof [];     // object 无效判断
+typeof new Date();   // object 无效判断
+typeof new RegExp();   // object 无效判断</code></pre><p>这里我要放一个我自己之前混起来的点（但是现在解决啦嘿嘿~）</p>
+<pre><code>typeof Object;    // function
+typeof new Object;    // object</code></pre><p>检讨： 为什么会混起来！！！忘记了Object是对象的构造函数! 当然new Date和Date也是这样的，其他的也是！要举一反三哦！</p>
+<p>总结：</p>
+<ul>
+<li>typeof可以准确判断除null之外的基本类型结果</li>
+<li>对于null，返回结果是object</li>
+<li>对于引用类型，除function之外返回object</li>
+<li>对于function，返回结果为function</li>
+</ul>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof用来判断A是否为B的实例(A instanceof B),如果是，则返回<code>true</code>，如果不是则返回<code>false</code>。</p>
+<p>instanceof实现逻辑如下：</p>
+<pre><code>instanceof(A,B) {
+    if(A.__proto__ === B.prototype) {
+        return true
+    }
+    return false
+}</code></pre><p>这里就扯到原型链了，instanceof其实是在原型链上寻找构造函数的原型和实例对象的关系，如果实例对象通过<strong>proto</strong>指向构造函数的原型（及Parent.prototype === p.<strong>proto</strong>），则返回<code>true</code>。</p>
+<p><img src="prototype.png" alt></p>
+<p>我们来瞅瞅这几个栗子：</p>
+<pre><code>1 instanceof Number;   // false
+&quot;hello world&quot; instanceof String;    // false
+true instanceof Boolean;  // false
+null instanceof Object;  // false   快看！这个和typeof返回的不一样！！！！
+null instanceof Null;    // 报错 实际并不存在
+undefined instanceof Undefinef;   // 报错 实际并不存在</code></pre><p>instanceof没办法判断原始值的类型！原因是<strong>原始值并没有转换成对象</strong>，instanceof是没办法检测到原型的，所以直接返回<code>false</code>。</p>
+<p>不过下面这些都是可以判断的啦，我没有写全！</p>
+<pre><code>new Date instanceof Date;  // true
+new Function instanceof Function;  //true
+[] instanceof Array;  // true
+[] instanceof Object;  // true
+...</code></pre><p>大家快看看这个[]，其实并不是判断错了哦，只是[].<strong>proto</strong> === Array.prototype,而且[].<strong>proto</strong>.<strong>proto</strong> === Object.prototype，所以Instanceof顺着原型链找到这个结果，就返回<code>true</code>了</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>当一个函数被创建的时候，JS引擎就会为它加上prototype原型，而prototype存在一个constructor属性，指向这个函数的引用。</p>
+<p><img src="prototype.png" alt></p>
+<p>所以constructor判断数据类型的原理其实就是通过寻找构造函数来判断类型</p>
+<pre><code>function F() {}
+var f = new F();
+f.constructor === F;   // true
+或者
+f.__proto__.constructor === F   // true</code></pre><p>瞅瞅这些热乎乎的栗子呀：</p>
+<pre><code>new Date().constructor === Date; // true
+new Function().constructor === Function; // true
+&quot;hello world &quot;.constructor === String;  // true</code></pre><p>这里要注意的是访问原型上的内置函数和属性,会导致基本类型到引用类型的转换！所以”hello world”现在已经变成了引用类型了。</p>
+<h3 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h3><p>toString()是Object原型上的方法，调用该方法，会返回当前对象的[[Class]]属性，[[Class]]是对象的内部属性，里面包含了对象的类型信息，其格式为[object Xxx],其中Xxx就是对应的具体类型。</p>
+<p>对于Object对象，只需要直接调用此方法</p>
+<pre><code>var obj = {};
+obj.toString();    // [object Object]</code></pre><p>而对于其他对象，则需要通过call或者apply来绑定调用的对象</p>
+<pre><code>Object.prototype.toString.call(&apos;&apos;) ;  // [object String]
+Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是但是这个方法其实也有缺陷的！让我们瞅瞅ES6提出的Symbol符号，这个符号是所有对象都具有的属性，它的功能是定义对象[object Xxx]中的Xxx。</p>
+<p><img src="symbol.png" alt></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -475,12 +521,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>MySQL简单学习增删改查命令</p>
+    <p><span class="copy-title">文章标题:</span>javaScript复习——基本类型、引用类型已经判断数据类型的办法</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-10-09, 16:28:27</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-16, 16:29:27</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/09/MySQL简单学习增删改查命令/" title="MySQL简单学习增删改查命令">http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/</a>
+    <p><span class="copy-title">发布时间:</span>2019-11-29, 23:15:46</p>
+    <p><span class="copy-title">最后更新:</span>2019-11-30, 22:46:46</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
