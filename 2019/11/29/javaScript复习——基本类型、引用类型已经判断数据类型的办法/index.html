@@ -6,29 +6,22 @@
   <meta name="keywords" content=" javaScript , javaScript面试 ">
   <meta name="description" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
+<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="keywords" content="javaScript,javaScript面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL简单学习增删改查命令">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/index.html">
+<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
+<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_3.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_4.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_workbench.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_2.png">
-<meta property="og:updated_time" content="2019-11-16T08:29:27.390Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
+<meta property="og:updated_time" content="2019-12-02T02:10:06.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL简单学习增删改查命令">
-<meta name="twitter:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
+<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -175,6 +168,10 @@
     
         
             
+        
+    
+        
+            
             <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -186,10 +183,6 @@
                     </ul>
                 
             </li>
-            
-        
-    
-        
             
         
     
@@ -242,11 +235,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color2">CSS-面试</a>
+        <a class="color4">CSS</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
+        <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -263,12 +256,28 @@
     
     <nav id="title-list-nav">
         
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+        </a>
+        
         <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS-面试,CSS"
+           data-tag="CSS,CSS-面试"
            data-author="" >
             <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
             <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
         </a>
         
         <a  class=""
@@ -287,12 +296,20 @@
             <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
         </a>
         
-        <a  class="CSS 面试 "
-           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS-面试,CSS"
+        <a  class=""
+           href="/2019/09/21/javaScript继承/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -304,35 +321,11 @@
         </a>
         
         <a  class=""
-           href="/2019/09/21/javaScript继承/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript继承">javaScript继承</span>
-            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
            href="/2019/11/28/面试-数据结构/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="面试-数据结构">面试-数据结构</span>
             <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
-            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class=""
@@ -383,7 +376,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-30 22:46:46'>2019-11-29 23:15</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-02 10:10:06'>2019-11-29 23:15</time>
         
     </div>
     <div class="article-meta">
@@ -432,7 +425,7 @@
 <li>基本类型的数据存放在<strong>栈内存</strong>中，基本值在内存中占有固定大小的空间，在栈内存中按值查找。（这里需要注意的是，虽然字符串长度可变，但是ECMAscript还是将它归为基本类型）</li>
 <li>引用类型的数据存放在<strong>堆内存</strong>中，引用值的大小不固定，但是他们的内存地址的固定大小的，因此可以将引用值的内存地址存放在栈内存中。也就是当查询引用类型的变量时，先<strong>从栈中读取内存地址</strong>，再<strong>通过地址找到堆中的值</strong></li>
 </ul>
-<p>在计算机的数据结构中，栈比堆的与运算速度快，而将数组扩充、对象属性的添加等操作放在堆中，可以保证栈的效率不被影响。</p>
+<p>在计算机的数据结构中，栈比堆的运算速度快，而将数组扩充、对象属性的添加等操作放在堆中，可以保证栈的效率不被影响。</p>
 <h2 id="原始值和引用值的传递问题"><a href="#原始值和引用值的传递问题" class="headerlink" title="原始值和引用值的传递问题"></a>原始值和引用值的传递问题</h2><p>这部分是面试和笔记常见的考点，敲黑板，都给我记!</p>
 <ul>
 <li><p>原始值的传递：当我们把一个原始变量传递给另一个原始变量时，其实是把栈空间中的内容复制到另一个栈空间中，这时候<strong>两个原始值传递互并不影响</strong>。</p>
@@ -479,7 +472,7 @@ typeof new Object;    // object</code></pre><p>检讨： 为什么会混起来�
         return true
     }
     return false
-}</code></pre><p>这里就扯到原型链了，instanceof其实是在原型链上寻找构造函数的原型和实例对象的关系，如果实例对象通过<strong>proto</strong>指向构造函数的原型（及Parent.prototype === p.<strong>proto</strong>），则返回<code>true</code>。</p>
+}</code></pre><p>这里就扯到原型链了，instanceof其实是在原型链上寻找构造函数的原型和实例对象的关系，如果实例对象通过__proto__指向构造函数的原型（及Parent.prototype === p.__proto__），则返回<code>true</code>。</p>
 <p><img src="prototype.png" alt></p>
 <p>我们来瞅瞅这几个栗子：</p>
 <pre><code>1 instanceof Number;   // false
@@ -493,7 +486,7 @@ undefined instanceof Undefinef;   // 报错 实际并不存在</code></pre><p>in
 new Function instanceof Function;  //true
 [] instanceof Array;  // true
 [] instanceof Object;  // true
-...</code></pre><p>大家快看看这个[]，其实并不是判断错了哦，只是[].<strong>proto</strong> === Array.prototype,而且[].<strong>proto</strong>.<strong>proto</strong> === Object.prototype，所以Instanceof顺着原型链找到这个结果，就返回<code>true</code>了</p>
+...</code></pre><p>大家快看看这个[]，其实并不是判断错了哦，只是[].__proto__ === Array.prototype,而且[].__proto__.__proto__ === Object.prototype，所以Instanceof顺着原型链找到这个结果，就返回<code>true</code>了</p>
 <h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>当一个函数被创建的时候，JS引擎就会为它加上prototype原型，而prototype存在一个constructor属性，指向这个函数的引用。</p>
 <p><img src="prototype.png" alt></p>
 <p>所以constructor判断数据类型的原理其实就是通过寻找构造函数来判断类型</p>
@@ -510,7 +503,7 @@ new Function().constructor === Function; // true
 <pre><code>var obj = {};
 obj.toString();    // [object Object]</code></pre><p>而对于其他对象，则需要通过call或者apply来绑定调用的对象</p>
 <pre><code>Object.prototype.toString.call(&apos;&apos;) ;  // [object String]
-Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是但是这个方法其实也有缺陷的！让我们瞅瞅ES6提出的Symbol符号，这个符号是所有对象都具有的属性，它的功能是定义对象[object Xxx]中的Xxx。</p>
+Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是这个方法其实也有缺陷的！让我们瞅瞅ES6提出的Symbol.toStringTag符号，这个符号是所有对象都具有的属性，它的功能是定义对象[object Xxx]中的Xxx。</p>
 <p><img src="symbol.png" alt></p>
 
       
@@ -525,7 +518,7 @@ Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是�
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
     <p><span class="copy-title">发布时间:</span>2019-11-29, 23:15:46</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-30, 22:46:46</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-02, 10:10:06</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -570,7 +563,7 @@ Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是�
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
+            'data': ['#CSS','#CSS-面试','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

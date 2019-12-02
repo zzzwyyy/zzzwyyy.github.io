@@ -3,32 +3,25 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content=" CSS-面试 , CSS ">
+  <meta name="keywords" content=" CSS , CSS-面试 ">
   <meta name="description" content="CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
+<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="keywords" content="javaScript,javaScript面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL简单学习增删改查命令">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/index.html">
+<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
+<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_3.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_4.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_workbench.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_object_2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/set_table_2.png">
-<meta property="og:updated_time" content="2019-11-16T08:29:27.390Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
+<meta property="og:updated_time" content="2019-12-02T02:10:06.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL简单学习增删改查命令">
-<meta name="twitter:description" content="MySql是现在最常用的存储工具，所以学会MySql对于我们来说就非常必要了。但是这里只是我记录的一些MySql的简单应用。 MySql的下载安装 下载MySQL数据库可以访问官方网站：https://www.mysql.com/downloads/     选择合适的下载就可以啦     我们还要下载一个workbench操作mysql客户端，可视化操作   或者 https://dev.mys">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/09/MySQL简单学习增删改查命令/install_1.png">
+<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -175,6 +168,10 @@
     
         
             
+        
+    
+        
+            
             <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -186,10 +183,6 @@
                     </ul>
                 
             </li>
-            
-        
-    
-        
             
         
     
@@ -242,11 +235,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color2">CSS-面试</a>
+        <a class="color4">CSS</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
+        <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -263,12 +256,28 @@
     
     <nav id="title-list-nav">
         
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+        </a>
+        
         <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS-面试,CSS"
+           data-tag="CSS,CSS-面试"
            data-author="" >
             <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
             <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
         </a>
         
         <a  class=""
@@ -287,12 +296,20 @@
             <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
         </a>
         
-        <a  class="CSS 面试 "
-           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS-面试,CSS"
+        <a  class=""
+           href="/2019/09/21/javaScript继承/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -304,35 +321,11 @@
         </a>
         
         <a  class=""
-           href="/2019/09/21/javaScript继承/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript继承">javaScript继承</span>
-            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
            href="/2019/11/28/面试-数据结构/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="面试-数据结构">面试-数据结构</span>
             <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
-            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class=""
@@ -374,9 +367,9 @@
         
         <span class="tag">
             
-            <a class="color2">CSS-面试</a>
-            
             <a class="color4">CSS</a>
+            
+            <a class="color2">CSS-面试</a>
             
         </span>
         
@@ -814,7 +807,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
+            'data': ['#CSS','#CSS-面试','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
