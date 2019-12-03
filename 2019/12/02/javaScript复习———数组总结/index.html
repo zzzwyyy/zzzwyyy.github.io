@@ -6,22 +6,19 @@
   <meta name="keywords" content>
   <meta name="description" content="javaScript复习———数组总结 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="keywords" content="javaScript,javaScript面试">
+<meta name="description" content="数组javaScript中数组的作用就是用单一变量储存多个值。 数组是一种特殊类型的对象。对象是使用命名索引，数组使用数字索引。 创建数组的方法 数组文本方法（字面量形式）   var arr = [“zhangsan”,”lisi”];  通过关键字new创建Array对象的实例   但我们还是避免使用JS的内建数组构造器new Array。为了简洁，可读性和执行速度，还是用上一种方法吧！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
+<meta property="og:title" content="javaScript复习———数组总结">
+<meta property="og:url" content="http://yoursite.com/2019/12/02/javaScript复习———数组总结/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta property="og:description" content="数组javaScript中数组的作用就是用单一变量储存多个值。 数组是一种特殊类型的对象。对象是使用命名索引，数组使用数字索引。 创建数组的方法 数组文本方法（字面量形式）   var arr = [“zhangsan”,”lisi”];  通过关键字new创建Array对象的实例   但我们还是避免使用JS的内建数组构造器new Array。为了简洁，可读性和执行速度，还是用上一种方法吧！">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
-<meta property="og:updated_time" content="2019-12-02T02:10:06.572Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/2/16ec4e325e668e57?w=696&h=298&f=png&s=27341">
+<meta property="og:updated_time" content="2019-12-02T15:32:28.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta name="twitter:title" content="javaScript复习———数组总结">
+<meta name="twitter:description" content="数组javaScript中数组的作用就是用单一变量储存多个值。 数组是一种特殊类型的对象。对象是使用命名索引，数组使用数字索引。 创建数组的方法 数组文本方法（字面量形式）   var arr = [“zhangsan”,”lisi”];  通过关键字new创建Array对象的实例   但我们还是避免使用JS的内建数组构造器new Array。为了简洁，可读性和执行速度，还是用上一种方法吧！">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/2/16ec4e325e668e57?w=696&h=298&f=png&s=27341">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -273,14 +270,6 @@
         </a>
         
         <a  class=""
-           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS,CSS-面试"
-           data-author="" >
-            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
-            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
-        </a>
-        
-        <a  class=""
            href="/2019/10/09/MySQL简单学习增删改查命令/"
            data-tag=""
            data-author="" >
@@ -289,35 +278,19 @@
         </a>
         
         <a  class=""
+           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
+            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class=""
            href="/2019/08/14/javaScript中的原型和原型链/"
            data-tag="javaScript"
            data-author="" >
             <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
             <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class="javaScript 面试 "
-           href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
-           data-tag="javaScript,javaScript面试"
-           data-author="" >
-            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
-            <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/12/02/javaScript复习———数组总结/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
-            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/11/28/面试-数据结构/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
         <a  class=""
@@ -329,6 +302,22 @@
         </a>
         
         <a  class=""
+           href="/2019/12/02/javaScript复习———数组总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
+            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
+        </a>
+        
+        <a  class="javaScript 面试 "
+           href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
+           data-tag="javaScript,javaScript面试"
+           data-author="" >
+            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
+            <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
+        </a>
+        
+        <a  class=""
            href="/2019/09/21/javaScript继承/"
            data-tag=""
            data-author="" >
@@ -336,12 +325,12 @@
             <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
         </a>
         
-        <a  class="杂记 "
-           href="/2019/12/03/杂记/"
+        <a  class=""
+           href="/2019/07/01/简单说说微信小程序的底层原理/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="2019/12/2~8——杂记">2019/12/2~8——杂记</span>
-            <span class="post-date" title="2019-12-03 23:27:47">2019/12/03</span>
+            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
+            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
         </a>
         
         <a  class=""
@@ -352,12 +341,20 @@
             <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
-        <a  class=""
-           href="/2019/07/01/简单说说微信小程序的底层原理/"
+        <a  class="杂记 "
+           href="/2019/12/03/杂记（2019-12-2-8）/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
-            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
+            <span class="post-title" title="杂记（2019/12/2-8）">杂记（2019/12/2-8）</span>
+            <span class="post-date" title="2019-12-03 23:34:09">2019/12/03</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/28/面试-数据结构/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
     </nav>
