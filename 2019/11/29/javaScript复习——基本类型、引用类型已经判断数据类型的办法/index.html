@@ -6,20 +6,22 @@
   <meta name="keywords" content=" javaScript , javaScript面试 ">
   <meta name="description" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="keywords" content="javaScript,javaScript面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
-<meta property="og:url" content="http://yoursite.com/2019/12/03/杂记（2019-12-2-8）/index.html">
+<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed13392fbe59f8?w=1080&h=1080&f=jpeg&s=857561">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed1531afcdd9f8?w=956&h=666&f=png&s=261691">
-<meta property="og:updated_time" content="2019-12-04T15:58:38.872Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
+<meta property="og:updated_time" content="2019-12-04T13:30:13.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
-<meta name="twitter:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed13392fbe59f8?w=1080&h=1080&f=jpeg&s=857561">
+<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
+<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -166,10 +168,6 @@
     
         
             
-        
-    
-        
-            
             <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -193,6 +191,10 @@
             <li><div data-rel="杂记">杂记<small>(1)</small></div>
                 
             </li>
+            
+        
+    
+        
             
         
     
@@ -271,22 +273,6 @@
         </a>
         
         <a  class=""
-           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS,CSS-面试"
-           data-author="" >
-            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
-            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
            href="/2019/10/09/MySQL简单学习增删改查命令/"
            data-tag=""
            data-author="" >
@@ -302,14 +288,6 @@
             <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
         </a>
         
-        <a  class=""
-           href="/2018/08/03/javaScript中的变量提升和函数提升/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
-            <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
-        </a>
-        
         <a  class="javaScript 面试 "
            href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
            data-tag="javaScript,javaScript面试"
@@ -319,11 +297,51 @@
         </a>
         
         <a  class=""
+           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
+            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class="杂记 "
+           href="/2019/12/03/杂记（2019-12-2-8）/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="杂记（2019/12/2-8）">杂记（2019/12/2-8）</span>
+            <span class="post-date" title="2019-12-03 23:34:09">2019/12/03</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+        </a>
+        
+        <a  class=""
            href="/2019/09/21/javaScript继承/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="javaScript继承">javaScript继承</span>
             <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/28/面试-数据结构/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/08/03/javaScript中的变量提升和函数提升/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
+            <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
         </a>
         
         <a  class=""
@@ -340,22 +358,6 @@
            data-author="" >
             <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
             <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
-        </a>
-        
-        <a  class="杂记 "
-           href="/2019/12/03/杂记（2019-12-2-8）/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="杂记（2019/12/2-8）">杂记（2019/12/2-8）</span>
-            <span class="post-date" title="2019-12-03 23:34:09">2019/12/03</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/11/28/面试-数据结构/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
     </nav>
