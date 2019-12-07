@@ -6,22 +6,20 @@
   <meta name="keywords" content>
   <meta name="description" content="杂记（2019/12/2-8） | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="keywords" content="javaScript,javaScript面试">
+<meta name="description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
+<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
+<meta property="og:url" content="http://yoursite.com/2019/12/03/杂记（2019-12-2-8）/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta property="og:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
-<meta property="og:updated_time" content="2019-12-04T13:30:13.222Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed1531afcdd9f8?w=956&h=666&f=png&s=261691">
+<meta property="og:updated_time" content="2019-12-07T15:37:50.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
+<meta name="twitter:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -188,13 +186,13 @@
     
         
             
-            <li><div data-rel="杂记">杂记<small>(1)</small></div>
-                
-            </li>
-            
         
     
         
+            
+            <li><div data-rel="杂记">杂记<small>(1)</small></div>
+                
+            </li>
             
         
     
@@ -281,6 +279,14 @@
         </a>
         
         <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+        </a>
+        
+        <a  class=""
            href="/2019/10/09/MySQL简单学习增删改查命令/"
            data-tag=""
            data-author="" >
@@ -289,19 +295,19 @@
         </a>
         
         <a  class=""
-           href="/2019/12/02/javaScript复习———数组总结/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
-            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
-        </a>
-        
-        <a  class=""
            href="/2018/08/03/javaScript中的变量提升和函数提升/"
            data-tag="javaScript"
            data-author="" >
             <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
             <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/12/02/javaScript复习———数组总结/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
+            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -313,11 +319,27 @@
         </a>
         
         <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
+           href="/2019/09/21/javaScript继承/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/01/简单说说微信小程序的底层原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
+            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
         </a>
         
         <a  class="杂记 "
@@ -329,35 +351,11 @@
         </a>
         
         <a  class=""
-           href="/2019/09/21/javaScript继承/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript继承">javaScript继承</span>
-            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/07/01/简单说说微信小程序的底层原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
-            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
-        </a>
-        
-        <a  class=""
            href="/2019/11/28/面试-数据结构/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="面试-数据结构">面试-数据结构</span>
             <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
-            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
     </nav>
@@ -390,7 +388,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-06 23:46:21'>2019-12-03 23:34</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-07 23:37:50'>2019-12-03 23:34</time>
         
     </div>
     <div class="article-meta">
@@ -412,7 +410,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-3-Tuseday"><span class="toc-text">2019/12/3 Tuseday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学到的东西"><span class="toc-text">今天学到的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数传参传递的是内存地址"><span class="toc-text">函数传参传递的是内存地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null不是对象，以及不是对象的原因"><span class="toc-text">null不是对象，以及不是对象的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-0-2为什么不等于0-3"><span class="toc-text">0.1+0.2为什么不等于0.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用代码实现instanceof的功能"><span class="toc-text">用代码实现instanceof的功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学习遇到的需要进一步解决的问题"><span class="toc-text">今天学习遇到的需要进一步解决的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（）本类型包装-（《高程》118页）-回答’1’-toString-为什么可以调用？"><span class="toc-text">（）本类型包装 （《高程》118页）,回答’1’.toString()为什么可以调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）如何理解BigInt？（-什么是BigInt？为什么使用BigInt？如何创建并使用BigInt？）"><span class="toc-text">（）如何理解BigInt？（ 什么是BigInt？为什么使用BigInt？如何创建并使用BigInt？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）复习总结一下Object常用方法"><span class="toc-text">（）复习总结一下Object常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（√）总结”-”和”-”区别及适用情况"><span class="toc-text">（√）总结”===”和”==”区别及适用情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-4-Wednesday"><span class="toc-text">2019/12/4 Wednesday</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学到的东西-1"><span class="toc-text">今天学到的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结if在什么情况下判断为false"><span class="toc-text">总结if在什么情况下判断为false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的三种类型转换"><span class="toc-text">JS中的三种类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#的结果是什么？"><span class="toc-text">[] == ![]的结果是什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学习遇到的需要进一步解决的问题-1"><span class="toc-text">今天学习遇到的需要进一步解决的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（）复习Object-is方法，回答：Object-is和-的区别"><span class="toc-text">（）复习Object.is方法，回答：Object.is和===的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）对象转原始类型依据什么流程实现？-应用：让if-a-1-amp-amp-a-2-成立"><span class="toc-text">（）对象转原始类型依据什么流程实现？ 应用：让if(a == 1 &amp;&amp; a ==2)成立</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）apply和call的区别和应用"><span class="toc-text">（）apply和call的区别和应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-4-Thursday"><span class="toc-text">2019/12/4 Thursday </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-5-Friday"><span class="toc-text">2019/12/5 Friday</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-3-Tuseday"><span class="toc-text">2019/12/3 Tuseday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学到的东西"><span class="toc-text">今天学到的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数传参传递的是内存地址"><span class="toc-text">函数传参传递的是内存地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null不是对象，以及不是对象的原因"><span class="toc-text">null不是对象，以及不是对象的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-0-2为什么不等于0-3"><span class="toc-text">0.1+0.2为什么不等于0.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用代码实现instanceof的功能"><span class="toc-text">用代码实现instanceof的功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学习遇到的需要进一步解决的问题"><span class="toc-text">今天学习遇到的需要进一步解决的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（）本类型包装-（《高程》118页）-回答’1’-toString-为什么可以调用？"><span class="toc-text">（）本类型包装 （《高程》118页）,回答’1’.toString()为什么可以调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）如何理解BigInt？（-什么是BigInt？为什么使用BigInt？如何创建并使用BigInt？）"><span class="toc-text">（）如何理解BigInt？（ 什么是BigInt？为什么使用BigInt？如何创建并使用BigInt？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）复习总结一下Object常用方法"><span class="toc-text">（）复习总结一下Object常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（√）总结”-”和”-”区别及适用情况"><span class="toc-text">（√）总结”===”和”==”区别及适用情况</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-4-Wednesday"><span class="toc-text">2019/12/4 Wednesday</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学到的东西-1"><span class="toc-text">今天学到的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总结if在什么情况下判断为false"><span class="toc-text">总结if在什么情况下判断为false</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的三种类型转换"><span class="toc-text">JS中的三种类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#的结果是什么？"><span class="toc-text">[] == ![]的结果是什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今天学习遇到的需要进一步解决的问题-1"><span class="toc-text">今天学习遇到的需要进一步解决的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（）复习Object-is方法，回答：Object-is和-的区别"><span class="toc-text">（）复习Object.is方法，回答：Object.is和===的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）对象转原始类型依据什么流程实现？-应用：让if-a-1-amp-amp-a-2-成立"><span class="toc-text">（）对象转原始类型依据什么流程实现？ 应用：让if(a == 1 &amp;&amp; a ==2)成立</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（）apply和call的区别和应用"><span class="toc-text">（）apply和call的区别和应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-4-Thursday"><span class="toc-text">2019/12/4 Thursday </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-5-Friday"><span class="toc-text">2019/12/5 Friday</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-6-Saturday"><span class="toc-text">2019/12/6 Saturday</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -533,7 +531,7 @@ console.log(p2)     // {name: &apos;hzj&apos;,age: 18}</code></pre><p>理解：<
 <p>没有有趣的事，但是练了车，结束了光学综合实验，还煮了巨好吃的香菇牛肉饺子，吃上了心心念念的“黑店”夹馍…仔细想想，平凡生活还是闪闪发光的呀！</p>
 <p>明天开始准备学校的期末考试，所以复习的内容会超级少。不过只要每天都有填补漏洞，我就心满意足啦，保证每天的github的小绿点！</p>
 <p>（今天突然意识到可能真的见不了面了，还是偷偷哭了一把）</p>
-<h1 id="2019-12-5-Friday"><a href="#2019-12-5-Friday" class="headerlink" title="2019/12/5 Friday"></a><font color="398579">2019/12/5 Friday</font></h1>
+<h1 id="2019-12-5-Friday"><a href="#2019-12-5-Friday" class="headerlink" title="2019/12/5 Friday"></a><font color="398579">2019/12/5 Friday</font></h1><h1 id="2019-12-6-Saturday"><a href="#2019-12-6-Saturday" class="headerlink" title="2019/12/6 Saturday"></a><font color="398579">2019/12/6 Saturday</font></h1>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
     </div>
@@ -546,7 +544,7 @@ console.log(p2)     // {name: &apos;hzj&apos;,age: 18}</code></pre><p>理解：<
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-03, 23:34:09</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-06, 23:46:21</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-07, 23:37:50</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/03/杂记（2019-12-2-8）/" title="杂记（2019/12/2-8）">http://yoursite.com/2019/12/03/杂记（2019-12-2-8）/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
