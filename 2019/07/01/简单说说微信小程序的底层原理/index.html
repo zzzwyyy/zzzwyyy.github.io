@@ -6,22 +6,17 @@
   <meta name="keywords" content>
   <meta name="description" content="简单说说微信小程序的底层原理 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="keywords" content="javaScript,javaScript面试">
+<meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta property="og:url" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/index.html">
+<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
+<meta property="og:url" content="http://yoursite.com/2019/12/09/杂记（2019-12-9-15）/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
+<meta property="og:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
-<meta property="og:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/symbol.png">
-<meta property="og:updated_time" content="2019-12-04T13:30:13.222Z">
+<meta property="og:updated_time" content="2019-12-10T04:49:26.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaScript复习——基本类型、引用类型已经判断数据类型的办法">
-<meta name="twitter:description" content="原始值和引用值类型和区别在javaScript中，变量可以储存两种值：原始值和引用值。  基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol  引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。   变量的存放 基本类型的数">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/prototype.png">
+<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
+<meta name="twitter:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -243,11 +238,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color2">CSS-面试</a>
+        <a class="color4">CSS</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
+        <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -264,20 +259,36 @@
     
     <nav id="title-list-nav">
         
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+        </a>
+        
         <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS-面试,CSS"
+           data-tag="CSS,CSS-面试"
            data-author="" >
             <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
             <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
         </a>
         
-        <a  class="CSS 面试 "
-           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS-面试,CSS"
+        <a  class=""
+           href="/2019/10/09/MySQL简单学习增删改查命令/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+            <span class="post-title" title="MySQL简单学习增删改查命令">MySQL简单学习增删改查命令</span>
+            <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/08/03/javaScript中的变量提升和函数提升/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
+            <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
         </a>
         
         <a  class=""
@@ -297,19 +308,11 @@
         </a>
         
         <a  class=""
-           href="/2019/10/09/MySQL简单学习增删改查命令/"
+           href="/2019/09/21/javaScript继承/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="MySQL简单学习增删改查命令">MySQL简单学习增删改查命令</span>
-            <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
-        </a>
-        
-        <a  class=""
-           href="/2018/08/03/javaScript中的变量提升和函数提升/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的变量提升和函数提升">javaScript中的变量提升和函数提升</span>
-            <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -321,6 +324,14 @@
         </a>
         
         <a  class="杂记 "
+           href="/2019/12/09/杂记（2019-12-9-15）/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="杂记（2019/12/9-15）">杂记（2019/12/9-15）</span>
+            <span class="post-date" title="2019-12-09 11:23:54">2019/12/09</span>
+        </a>
+        
+        <a  class="杂记 "
            href="/2019/12/03/杂记（2019-12-2-8）/"
            data-tag=""
            data-author="" >
@@ -329,27 +340,11 @@
         </a>
         
         <a  class=""
-           href="/2019/09/21/javaScript继承/"
+           href="/2019/11/28/面试-数据结构/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="javaScript继承">javaScript继承</span>
-            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
-            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
-        </a>
-        
-        <a  class="杂记 "
-           href="/2019/12/09/杂记（2019-12-9-15）/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="杂记（2019/12/9-15）">杂记（2019/12/9-15）</span>
-            <span class="post-date" title="2019-12-09 11:23:54">2019/12/09</span>
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
         <a  class=""
@@ -361,11 +356,11 @@
         </a>
         
         <a  class=""
-           href="/2019/11/28/面试-数据结构/"
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
     </nav>
@@ -539,7 +534,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
+            'data': ['#CSS','#CSS-面试','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
