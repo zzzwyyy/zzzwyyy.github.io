@@ -6,20 +6,17 @@
   <meta name="keywords" content>
   <meta name="description" content="杂记（2019/12/9-15） | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
-<meta property="og:url" content="http://yoursite.com/2019/12/03/杂记（2019-12-2-8）/index.html">
+<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
+<meta property="og:url" content="http://yoursite.com/2019/12/09/杂记（2019-12-9-15）/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta property="og:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed1531afcdd9f8?w=956&h=666&f=png&s=261691">
-<meta property="og:updated_time" content="2019-12-09T03:16:20.884Z">
+<meta property="og:updated_time" content="2019-12-12T15:30:26.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
-<meta name="twitter:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
+<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
+<meta name="twitter:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -170,6 +167,14 @@
     
         
             
+            <li><div data-rel="杂记">杂记<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -179,14 +184,6 @@
                         </li>
                             
                     </ul>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="杂记">杂记<small>(2)</small></div>
                 
             </li>
             
@@ -271,6 +268,14 @@
         </a>
         
         <a  class=""
+           href="/2019/08/14/javaScript中的原型和原型链/"
+           data-tag="javaScript"
+           data-author="" >
+            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
+            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
+        </a>
+        
+        <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
            data-tag="CSS,CSS-面试"
            data-author="" >
@@ -295,35 +300,11 @@
         </a>
         
         <a  class=""
-           href="/2019/08/14/javaScript中的原型和原型链/"
-           data-tag="javaScript"
-           data-author="" >
-            <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
-            <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
            href="/2019/12/02/javaScript复习———数组总结/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
             <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
-        </a>
-        
-        <a  class="javaScript 面试 "
-           href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
-           data-tag="javaScript,javaScript面试"
-           data-author="" >
-            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
-            <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/09/21/javaScript继承/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript继承">javaScript继承</span>
-            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
         </a>
         
         <a  class="杂记 "
@@ -342,12 +323,12 @@
             <span class="post-date" title="2019-12-09 11:23:54">2019/12/09</span>
         </a>
         
-        <a  class=""
-           href="/2019/07/01/简单说说微信小程序的底层原理/"
-           data-tag=""
+        <a  class="javaScript 面试 "
+           href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
+           data-tag="javaScript,javaScript面试"
            data-author="" >
-            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
-            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
+            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
+            <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
         </a>
         
         <a  class=""
@@ -364,6 +345,22 @@
            data-author="" >
             <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
             <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/09/21/javaScript继承/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="javaScript继承">javaScript继承</span>
+            <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/01/简单说说微信小程序的底层原理/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
+            <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
         </a>
         
     </nav>
@@ -396,7 +393,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-11 23:37:52'>2019-12-09 11:23</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-12 23:30:26'>2019-12-09 11:23</time>
         
     </div>
     <div class="article-meta">
@@ -418,7 +415,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-9-Monday"><span class="toc-text">2019/12/9 Monday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天的零碎知识点"><span class="toc-text">今天的零碎知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是闭包？闭包怎么形成的？"><span class="toc-text">什么是闭包？闭包怎么形成的？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-10-Tuseday"><span class="toc-text">2019/12/10 Tuseday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天的零碎知识点-1"><span class="toc-text">今天的零碎知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包的表现形式？（那些地方体现了闭包？）"><span class="toc-text">闭包的表现形式？（那些地方体现了闭包？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏"><span class="toc-text">内存泄漏</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-9-Monday"><span class="toc-text">2019/12/9 Monday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天的零碎知识点"><span class="toc-text">今天的零碎知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是闭包？闭包怎么形成的？"><span class="toc-text">什么是闭包？闭包怎么形成的？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-10-Tuseday"><span class="toc-text">2019/12/10 Tuseday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天的零碎知识点-1"><span class="toc-text">今天的零碎知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包的表现形式？（那些地方体现了闭包？）"><span class="toc-text">闭包的表现形式？（那些地方体现了闭包？）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-11-Wednesday"><span class="toc-text">2019/12/11 Wednesday </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-12-Thursday"><span class="toc-text">2019/12/12 Thursday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天的零碎知识点-2"><span class="toc-text">今天的零碎知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重新深入学习闭包作用域链"><span class="toc-text">重新深入学习闭包作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏"><span class="toc-text">内存泄漏</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -463,6 +460,15 @@ f2();   // 2</code></pre><p>f1函数执行后，f3函数就存在了指向父级
 <h1 id="2019-12-10-Tuseday"><a href="#2019-12-10-Tuseday" class="headerlink" title="2019/12/10 Tuseday "></a><font color="398579">2019/12/10 Tuseday </font></h1><p>我发现我还得整理复习this，箭头函数！！！</p>
 <p>之前学的实在太浅了，这个杂记专栏说是复习知识点，倒不如说是重新学习，总有不一样的收获！越学越觉得自己太太太菜啦！</p>
 <p>加油！冲冲冲！</p>
+<p>…</p>
+<p>（看来心情好的时候不能得瑟，因为坏心情会马上找上门）</p>
+<p>“我看到你相当积极地吮吸你的伤口，难怪它不能结疤。”<br>——三毛《亲爱的三毛》 </p>
+<p>我觉得博客是另一个我，是现在坐在电脑屏前的我的心情写照。虽然人类的悲欢并不相通，但是庆幸我能享受当下的孤独，学会和自己对话。</p>
+<p>…</p>
+<p>“我听到旷野，听到苍穹，听到荒漠和无边无际的黄土丘壑，听到炽热的沙漠，听到蓬勃生长的一切，有温度的、干燥到要燃烧的生命。”</p>
+<p>你看，还有那么多美好，何必把自己框在现在的故事中。</p>
+<p>简单的生活不必有太多完美，这世界也不该有太多伤悲!</p>
+<p>我还有梦，还期待做梦，还敢做梦！</p>
 <h2 id="今天的零碎知识点-1"><a href="#今天的零碎知识点-1" class="headerlink" title="今天的零碎知识点"></a><font color="398579">今天的零碎知识点</font></h2><h3 id="闭包的表现形式？（那些地方体现了闭包？）"><a href="#闭包的表现形式？（那些地方体现了闭包？）" class="headerlink" title="闭包的表现形式？（那些地方体现了闭包？）"></a>闭包的表现形式？（那些地方体现了闭包？）</h3><ol>
 <li><p>返回一个函数：昨天的第一个栗子就是了</p>
 </li>
@@ -476,7 +482,6 @@ function foo(){
   bar(baz);
 }
 function bar(fn){
-  let a = 3;
   fn();
 }
 foo();    </code></pre><p> 错误思路：上面栗子的作用域链：baz作用域 =&gt; bar作用域 =&gt; foo作用域 =&gt; window。然后顺着作用域先找到a=3,输出。</p>
@@ -498,8 +503,75 @@ $(&apos;#app&apos;).click(function() {
   console.log(a);
 })();</code></pre></li>
 </ol>
-<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>整理了一下闭包，发现闭包还牵扯到了内存泄漏的问题，今天一并整理！</p>
-<p>窒息了</p>
+<h1 id="2019-12-11-Wednesday"><a href="#2019-12-11-Wednesday" class="headerlink" title="2019/12/11 Wednesday "></a><font color="398579">2019/12/11 Wednesday </font></h1><p>花了一个早上时间做凹凸透镜激光扩束系统的方案设计，窒息！最后还要基于MATLAB！！！</p>
+<p>被退回来三次，第四次报告终于过了！！我原地360°螺旋上天给老师劈个叉，爱你啊啊啊！</p>
+<p>（复习了一天模电之后…）</p>
+<p>脑子仿佛不是自己的了，但是硬件实验室的同学真的好好呀，很耐心地给我讲解了知识点。</p>
+<p>今天发现自己对闭包的深入学习远远不够，但是学友说得对，学习是循序渐进的，每一遍学习都不断加深。</p>
+<h1 id="2019-12-12-Thursday"><a href="#2019-12-12-Thursday" class="headerlink" title="2019/12/12 Thursday "></a><font color="398579">2019/12/12 Thursday </font></h1><p>今天的心情暖暖的!</p>
+<p>从生活中又学到了一个小细节： </p>
+<blockquote>
+<p>一个国外的家庭，在他们家门口给快递员和外卖员配备了小零食、饮料以及暖心的感谢标语，在监控中看到快递员收到这份爱之后在门口跳起了舞。</p>
+</blockquote>
+<p>我觉得这个家庭一定是充满爱的，不止这个快递员，连看视频的我都感觉到了小温暖！</p>
+<p>生活馈赠的温暖让心情变得暖暖的，嘴角的笑怎么都藏不住！</p>
+<p>“宇宙山河浪漫，生活点滴温暖，都值得你前进。”</p>
+<h2 id="今天的零碎知识点-2"><a href="#今天的零碎知识点-2" class="headerlink" title="今天的零碎知识点"></a><font color="398579">今天的零碎知识点</font></h2><h3 id="重新深入学习闭包作用域链"><a href="#重新深入学习闭包作用域链" class="headerlink" title="重新深入学习闭包作用域链"></a>重新深入学习闭包作用域链</h3><p>那天在总结闭包这道例题的时候，突然想着如果我给bar函数加一个变量a的赋值，那么输出结果会变成3吗？</p>
+<p>我的想法是：作用域链：baz作用域 -&gt; bar作用域 -&gt; foo作用域 -&gt; window。访问变量a时顺着作用域先找到a=3,输出3。</p>
+<p>结果不出我所料！真的错误了呢！（毫无防备地留下了真正属于菜鸡的泪水…）</p>
+<pre><code>let a = 1;
+function foo(){
+  let a = 2;
+  function baz(){            
+    console.log(a);     
+  }
+  bar(baz);
+}
+function bar(fn){
+  let a = 3;    // 加上这个
+  fn();
+}
+foo();     // 输出结果还是2，不是3</code></pre><p>深（da）入（lao）学（jiang）习（jie）之后，终于知道是怎么回事了。</p>
+<p>原来我，作用域链没！！学！！明！！白！！</p>
+<p>首先，重新讲明白作用域链，先看看下面的栗子：</p>
+<pre><code>function foo() {
+    let a = 1;
+    function bar() {
+        let a = 2;
+        function baz() {
+            let a = 3;
+            console.log(a);
+        }
+        baz();
+    }
+    bar();
+}
+foo();</code></pre><p>在全局作用域中调用foo()时，创建了foo的临时OA对象：</p>
+<pre><code>foo-OA {
+    a: 1
+    bar: function()
+}</code></pre><p>在foo函数中调用了bar函数，同样生成了bar的临时OA对象：</p>
+<pre><code>bar-OA {
+    a: 2
+    baz: function()
+}</code></pre><p>在bar函数中调用baz函数，生成baz的临时OA对象：</p>
+<pre><code>baz-OA {
+    a: 3
+}</code></pre><p>这个时候就可以将作用域链连起来啦：window -&gt; foo-OA -&gt; bar-OA -&gt; bar-OA;</p>
+<p>于是我们访问变量a的时候，顺着底层开始寻找，在baz-OA对象中找到了a=3的结果；如果我们把baz-OA对象中的<code>a:3</code>去掉，那么JS引擎会找到bar-OA对象中的a=2，同理往下类推，如果最后在全局中也没有找到，就会报错。</p>
+<p>那么现在回头看看那个栗子：</p>
+<p>作用域链：</p>
+<pre><code>window {
+    a: 1
+    foo: function()
+}
+-&gt; foo-OA {
+    a: 2
+    baz: function()
+    }
+    -&gt; bar-OA {
+
+    }</code></pre><h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p>整理了一下闭包，发现闭包还牵扯到了内存泄漏的问题，今天一并整理！</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -513,7 +585,7 @@ $(&apos;#app&apos;).click(function() {
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-09, 11:23:54</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-11, 23:37:52</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-12, 23:30:26</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/09/杂记（2019-12-9-15）/" title="杂记（2019/12/9-15）">http://yoursite.com/2019/12/09/杂记（2019-12-9-15）/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
