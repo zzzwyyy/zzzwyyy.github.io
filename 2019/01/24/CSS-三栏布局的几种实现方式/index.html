@@ -3,20 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content=" CSS-面试 , CSS ">
+  <meta name="keywords" content=" CSS , CSS-面试 ">
   <meta name="description" content="CSS-三栏布局的几种实现方式 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
+<meta name="description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
-<meta property="og:url" content="http://yoursite.com/2019/12/09/杂记（2019-12-9-15）/index.html">
+<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
+<meta property="og:url" content="http://yoursite.com/2019/12/03/杂记（2019-12-2-8）/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
+<meta property="og:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-15T15:39:54.235Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/4/16ed1531afcdd9f8?w=956&h=666&f=png&s=261691">
+<meta property="og:updated_time" content="2019-12-09T03:16:20.884Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;9-15）">
-<meta name="twitter:description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
+<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;2-8）">
+<meta name="twitter:description" content="最近准备看三元同学的掘金和继续看大神学友的博客来复习巩固JavaScript基础。 突然决定写“杂记”也是想记录一些平时学习的零碎知识点，总结一下每天的收获，以及平凡生活里的温暖小事，这世间总是充满不期而遇的温暖，还有生生不息的希望！ 突然好喜欢博客呀，有一个自己碎碎念的小地方，可以纵情享受当下。 前段时间因为面试而焦虑，现在已经好多了。什么时候开始都不算晚，虽然我走的很慢，但是我却好享受这样踏踏">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/5/16ed6635ecafe8bf?w=807&h=315&f=jpeg&s=47071">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -147,22 +150,6 @@
     
         
             
-            <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(2)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="面试">面试<small>(2)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="CSS"><i class="fold iconfont icon-right"></i>CSS<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -183,6 +170,18 @@
     
         
             
+            <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="面试">面试<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
         
     
         
@@ -190,6 +189,10 @@
             <li><div data-rel="杂记">杂记<small>(2)</small></div>
                 
             </li>
+            
+        
+    
+        
             
         
     
@@ -238,11 +241,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color2">CSS-面试</a>
+        <a class="color4">CSS</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
+        <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -259,20 +262,12 @@
     
     <nav id="title-list-nav">
         
-        <a  class=""
-           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS-面试,CSS"
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS,CSS-面试"
            data-author="" >
-            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
-            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
-        </a>
-        
-        <a  class="javaScript 面试 "
-           href="/2019/12/14/JavaScript复习-闭包/"
-           data-tag="javaScript,javaScript面试"
-           data-author="" >
-            <span class="post-title" title="JavaScript复习-闭包">JavaScript复习-闭包</span>
-            <span class="post-date" title="2019-12-14 18:50:05">2019/12/14</span>
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
         </a>
         
         <a  class=""
@@ -283,12 +278,20 @@
             <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
         </a>
         
-        <a  class="CSS 面试 "
-           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS-面试,CSS"
+        <a  class=""
+           href="/2019/12/02/javaScript复习———数组总结/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
+            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
+            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/23/CSS-两栏布局的六种实现方式/"
+           data-tag="CSS,CSS-面试"
+           data-author="" >
+            <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
+            <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
         </a>
         
         <a  class=""
@@ -308,19 +311,19 @@
         </a>
         
         <a  class="javaScript 面试 "
+           href="/2019/12/14/JavaScript复习-闭包/"
+           data-tag="javaScript,javaScript面试"
+           data-author="" >
+            <span class="post-title" title="JavaScript复习-闭包">JavaScript复习-闭包</span>
+            <span class="post-date" title="2019-12-14 18:50:05">2019/12/14</span>
+        </a>
+        
+        <a  class="javaScript 面试 "
            href="/2019/11/29/javaScript复习——基本类型、引用类型已经判断数据类型的办法/"
            data-tag="javaScript,javaScript面试"
            data-author="" >
-            <span class="post-title" title="javaScript复习——基本类型、引用类型已经判断数据类型的办法">javaScript复习——基本类型、引用类型已经判断数据类型的办法</span>
+            <span class="post-title" title="javaScript复习—基本类型、引用类型已经判断数据类型的办法">javaScript复习—基本类型、引用类型已经判断数据类型的办法</span>
             <span class="post-date" title="2019-11-29 23:15:46">2019/11/29</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/12/02/javaScript复习———数组总结/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="javaScript复习———数组总结">javaScript复习———数组总结</span>
-            <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
         </a>
         
         <a  class=""
@@ -329,14 +332,6 @@
            data-author="" >
             <span class="post-title" title="javaScript继承">javaScript继承</span>
             <span class="post-date" title="2019-09-21 23:48:55">2019/09/21</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
-            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class="杂记 "
@@ -356,11 +351,11 @@
         </a>
         
         <a  class=""
-           href="/2019/11/28/面试-数据结构/"
+           href="/2019/10/02/简单理解MVVM、数据双向绑定原理/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
+            <span class="post-title" title="简单理解MVVM、数据双向绑定原理">简单理解MVVM、数据双向绑定原理</span>
+            <span class="post-date" title="2019-10-02 16:11:58">2019/10/02</span>
         </a>
         
         <a  class=""
@@ -369,6 +364,14 @@
            data-author="" >
             <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
             <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/28/面试-数据结构/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
     </nav>
@@ -402,9 +405,9 @@
         
         <span class="tag">
             
-            <a class="color2">CSS-面试</a>
-            
             <a class="color4">CSS</a>
+            
+            <a class="color2">CSS-面试</a>
             
         </span>
         
@@ -842,7 +845,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
+            'data': ['#CSS','#CSS-面试','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
