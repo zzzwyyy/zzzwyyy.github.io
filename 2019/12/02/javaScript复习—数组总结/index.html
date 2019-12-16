@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>javaScript中的变量提升和函数提升 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content=" javaScript ">
-  <meta name="description" content="javaScript中的变量提升和函数提升 | zzzwyyy的个人博客">
+  <title>javaScript复习—数组总结 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content>
+  <meta name="description" content="javaScript复习—数组总结 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:type" content="article">
@@ -383,25 +383,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-javaScript中的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-javaScript复习—数组总结" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">javaScript中的变量提升和函数提升</h1>
+        <h1 class="article-title">javaScript复习—数组总结</h1>
     
     <div class="article-meta">
         
         
         
-        
-        <span class="tag">
-            
-            <a class="color1">javaScript</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-23 23:46:19'>2018-08-03 10:29</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-16 12:37:51'>2019-12-02 23:32</time>
         
     </div>
     <div class="article-meta">
@@ -423,7 +417,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量提升-函数提升"><span class="toc-text">变量提升/函数提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-变量提升"><span class="toc-text">1.变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-函数提升"><span class="toc-text">2.函数提升</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#那变量提升到底是怎么回事？"><span class="toc-text">那变量提升到底是怎么回事？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数组的方法"><span class="toc-text">创建数组的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何识别变量是数组"><span class="toc-text">如何识别变量是数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组常用API"><span class="toc-text">数组常用API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的数组面试题"><span class="toc-text">常见的数组面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断数组中是否包含某一项"><span class="toc-text">判断数组中是否包含某一项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组去重"><span class="toc-text">数组去重</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -439,66 +433,76 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  这是初学之后整理出来的一些笔记，在写之前，也看了很多大佬写的关于变量提升的笔记，在这里附上对我很有帮助的一篇文章（<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" title="传送门" target="_blank" rel="noopener">传送门</a>），希望也可以帮助到正在看的你们呀！！！</p>
-<p>  随着不断学习不乱加深理解，会不断更新此笔记</p>
-<a id="more"></a>
-
-<h2 id="变量提升-函数提升"><a href="#变量提升-函数提升" class="headerlink" title="变量提升/函数提升"></a>变量提升/函数提升</h2><h3 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h3><p>先看一个栗子：</p>
-<pre><code>(function () {
-    console.log(x);
-    var x = &apos;javascript&apos;;
-})();
-
-//undefined</code></pre><p>上面的栗子在控制台查看并不会报错，而是输出<code>undefined</code>，这就涉及到变量提升的问题，实际操作代码是下面的样子：</p>
-<pre><code>(function () {
-    var x ;
-    console.log(x);
-    x = &apos;javascript&apos;;
-})();</code></pre><p>无论变量的声明在哪个地方，javascript引擎都会<strong>在代码被执行前将变量的声明提前处理</strong>，可以简单地认为这些声明被移动到了代码的最顶端，这就是提升过程。</p>
-<p>但要注意以下的栗子并不涉及变量提升，只是代码在操作时，因为<strong>同名而产生的覆盖</strong>：</p>
-<pre><code>var x = function() {};
-x= &apos;javascript&apos;;
-console.log(&apos;x的值为:&apos; + x);  
-
-//x的值为:javascript</code></pre><h3 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h3><p><strong>函数被优先提升</strong>，才会提升变量。</p>
-<p>该注意的是以下两种函数定义的方式，容易造成混淆：</p>
-<pre><code>//函数声明式
-(function () {
-    f();
-    function f() {
-        console.log(&apos;这是函数声明式&apos;)
+        <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>javaScript中数组的作用就是用单一变量储存多个值。</p>
+<p>数组是一种特殊类型的对象。对象是使用命名索引，数组使用<strong>数字索引</strong>。</p>
+<h2 id="创建数组的方法"><a href="#创建数组的方法" class="headerlink" title="创建数组的方法"></a>创建数组的方法</h2><ul>
+<li><p>数组文本方法（字面量形式）</p>
+<p>  var arr = [“zhangsan”,”lisi”];</p>
+</li>
+<li><p>通过关键字<code>new</code>创建Array对象的实例</p>
+<p>  但我们还是避免使用JS的内建数组构造器<code>new Array</code>。为了简洁，可读性和执行速度，还是用上一种方法吧！</p>
+<p>  var arr = new Array(“zhangsan”,”lisi”);</p>
+</li>
+</ul>
+<h2 id="如何识别变量是数组"><a href="#如何识别变量是数组" class="headerlink" title="如何识别变量是数组"></a>如何识别变量是数组</h2><ul>
+<li>array.isArray()</li>
+</ul>
+<p>typeof运算符只能返回Object结果，为了解决这个问题，ES5定义了一个新方法<code>Array.isArray()</code>.</p>
+<pre><code>var obj = [];
+Array.isArray(obj);    // true</code></pre><p>当然还有其他方法，具体看<a href="https://juejin.im/post/5ddfd57f6fb9a071ab56f638" target="_blank" rel="noopener">这里</a> </p>
+<h2 id="数组常用API"><a href="#数组常用API" class="headerlink" title="数组常用API"></a>数组常用API</h2><ul>
+<li><h2 id="常见的数组面试题"><a href="#常见的数组面试题" class="headerlink" title="常见的数组面试题"></a>常见的数组面试题</h2></li>
+</ul>
+<h3 id="判断数组中是否包含某一项"><a href="#判断数组中是否包含某一项" class="headerlink" title="判断数组中是否包含某一项"></a>判断数组中是否包含某一项</h3><ul>
+<li><p>array.indexOf()</p>
+<p>  <code>Array.indexOf()</code>接收一个参数，返回这个参数在数组中的位置索引，如果不存在则返回<code>-1</code>。</p>
+<pre><code>var arr = [1,2,3];
+arr.indexOf(1);   // 0</code></pre></li>
+<li><p>遍历查找</p>
+<p>  遍历数组，查找这一项，如果存在就返回<code>true</code>，否则返回<code>false</code></p>
+</li>
+</ul>
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><p>虽然在真实项目中，很少让前端处理数组去重，但是这却是面试常问的点，敲黑板！记笔记！(我的这些方法不全面，建议去看看大佬整理的更详细的总结，毕竟我看过一篇文章总结了12种方法呢！)</p>
+<ul>
+<li><p>简单去重方法</p>
+<p>  思路：创建一个新数组，在遍历原数组的过程中检测值是否在新数组中，如果不存在就将这个值push到新数组中。</p>
+<pre><code>function uniq(arr) {
+    var temp= [];     // 新数组 
+    for(let i = 0, len = arr.length; i &lt; len; i++) {
+        if(temp.indexOf(arr[i]) === -1) {
+            temp.push(arr[i]);
+        }
     }
-})();</code></pre><p>这个方法在控制台的输出是：<code>这是函数声明式</code>，无报错，<strong>函数声明被提升了</strong>。</p>
-<pre><code>//函数表达式
-(function () {
-    f();
-    var f = function() {
-        console.log(&apos;这是函数表达式&apos;)
-    };  
-})();</code></pre><p>这个方法在操作台报错：<code>TypeError: f is not a function</code>，这个方法<strong>函数声明不会被提升</strong></p>
-<h2 id="那变量提升到底是怎么回事？"><a href="#那变量提升到底是怎么回事？" class="headerlink" title="那变量提升到底是怎么回事？"></a>那变量提升到底是怎么回事？</h2><p>这里涉及到的知识点：<a href="https://github.com/mqyqingfeng/Blog/issues/5" target="_blank" rel="noopener">执行上下文之变量对象</a>和具体<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" target="_blank" rel="noopener">参考</a>.</p>
-<p>在我的初步理解是：</p>
-<p> 在一段代码被执行时会创建对应的执行上下文，一个执行上下文的生命周期分为<strong>创建</strong>和<strong>执行</strong>两个阶段.</p>
-<p><strong>变量对象的创建</strong>，经历以下过程：</p>
-<ol>
-<li><p>建立arguments对象。检查当前上下文中的参数，建立该对象下的属性与属性值。</p>
+    return temp;
+}</code></pre></li>
+</ul>
+<p>忍不住叨叨一个点，经常看到有<code>var len = arr.length</code>,避免了直接比较<code>i&lt;arr.length</code>,其实这是为了提高性能的一个小细节。试想一下，每循环一次就要调用一次<code>Array.length</code>属性，而数组存放在堆内存中。然而定义的<code>len</code>变量可以直接放在栈内存中呀，访问栈可比堆快多了！</p>
+<ul>
+<li><p>排序后相邻比较去除</p>
+<p>  思路：给数组排序，相邻项比较，把不同的值传到新数组中。</p>
+<pre><code>function uniq(arr) {
+    let temp = [];
+    arr.sort();   // 得到排序后的数组
+    for(let i = 0, len = arr.length; i &lt; len; i++) {
+        if(arr[i] !== arr[i+1]) {
+            temp.push(arr[i])
+        }
+    }
+    return temp;
+} </code></pre></li>
+</ul>
+<p>我要继续叨叨一次！ 我一开始的思路是比较相邻项，然后用<code>splice()</code>删除重复项。哼，我想的可美了，结果忘记了由于删除项，导致后一项被提前了，而下标没提前啊，于是变成下面这个样子了（我气！）：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/12/2/16ec4e325e668e57?w=696&h=298&f=png&s=27341" alt></p>
+<ul>
+<li><p>ES6中的set去重</p>
+<p>  set是一个集合用来存放任何类型的唯一值。但是在引用类型时要格外注意，只有在引用<strong>同一个内存地址</strong>时才被认为相同。</p>
+<pre><code>let demo = {a:1,b:2}
+let objSet = new Set([demo,demo]);
+console.log(&apos;objSet: &apos;, objSet);        // objSet: {a: 1, b: 2},{a: 1,b: 2};</code></pre><p>  瞅瞅这个看起来相同，实则不是引用同一个对象的栗子：</p>
 </li>
-<li><p>检查当前上下文的函数声明，也就是使用<code>function</code>关键字声明的函数。在变量对象中以函数名建立一个属性，属性值为指向该函数所在内存地址的引用。如果函数名的属性已经存在，那么该属性将会被新的引用所覆盖。(常说的函数优先被提升, 且同名会产生覆盖)</p>
-</li>
-<li><p>检查当前上下文中的变量声明，每找到一个变量声明，就在变量对象中以变量名建立一个属性，属性值为<code>undefined</code>。如果该变量名的属性已经存在，为了防止同名的函数被修改为<code>undefined</code>，则会 直接跳过。</p>
-</li>
-</ol>
-<p>看下面的栗子：</p>
-<pre><code>function fun () {}
-var fun = &apos;javascript&apos;
-console.log(fun);
-
-// &apos;javascript&apos;</code></pre><p>在创建阶段：javascript引擎先将函数<code>fun</code>提升到对象变量（VO）中，创建一个<code>fun</code>属性，属性值是指向该函数的内存地址的引用，然后再将变量<code>fun</code>提升到对象变量中，因为<strong>存在同名函数</strong>，所以跳过<code>undefined</code>的赋值。(这里没有弄明白的是提升后只存在一个<code>fun</code>属性，还是两个同名属性，目前先按只存在一个属性理解的，等我弄明白了再更新)</p>
-<p>变量对象里的属性<strong>只可读不可改</strong>。</p>
-<p>然后进入到执行阶段：变量对象变成活动对象（AO），开始赋值，执行代码。将属性<code>fun</code>的属性值变为<code>javascript</code>,这样在控制台打印时出现的就是<code>javascript</code>。</p>
-<p>活动对象的属性值可以改变。</p>
-<p>大概就是这样的笔记了，继续学习，继续进步吧。</p>
-
+</ul>
+<pre><code>let objSet = new Set([{a:1,b:2}, {a:1,b:2}]);
+console.log(&apos;objSet: &apos;, objSet);        // objectSet: {a: 1, b: 2};</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
     </div>
@@ -507,12 +511,12 @@ console.log(fun);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>javaScript中的变量提升和函数提升</p>
+    <p><span class="copy-title">文章标题:</span>javaScript复习—数组总结</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2018-08-03, 10:29:02</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-23, 23:46:19</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/08/03/javaScript中的变量提升和函数提升/" title="javaScript中的变量提升和函数提升">http://yoursite.com/2018/08/03/javaScript中的变量提升和函数提升/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-02, 23:32:02</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-16, 12:37:51</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/02/javaScript复习—数组总结/" title="javaScript复习—数组总结">http://yoursite.com/2019/12/02/javaScript复习—数组总结/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

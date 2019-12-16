@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>javaScript中的变量提升和函数提升 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content=" javaScript ">
-  <meta name="description" content="javaScript中的变量提升和函数提升 | zzzwyyy的个人博客">
+  <title>javaScript复习—基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content=" javaScript , javaScript面试 ">
+  <meta name="description" content="javaScript复习—基本类型、引用类型已经判断数据类型的办法 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:type" content="article">
@@ -383,25 +383,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-javaScript中的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-javaScript复习—基本类型、引用类型已经判断数据类型的办法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">javaScript中的变量提升和函数提升</h1>
+        <h1 class="article-title">javaScript复习—基本类型、引用类型已经判断数据类型的办法</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            
+                <a  data-rel="javaScript">javaScript</a>/
+            
+                <a  data-rel="面试">面试</a>
+            
+        </span>
         
         
         <span class="tag">
             
             <a class="color1">javaScript</a>
             
+            <a class="color3">javaScript面试</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-23 23:46:19'>2018-08-03 10:29</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-16 12:37:22'>2019-11-29 23:15</time>
         
     </div>
     <div class="article-meta">
@@ -423,7 +433,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量提升-函数提升"><span class="toc-text">变量提升/函数提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-变量提升"><span class="toc-text">1.变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-函数提升"><span class="toc-text">2.函数提升</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#那变量提升到底是怎么回事？"><span class="toc-text">那变量提升到底是怎么回事？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原始值和引用值类型和区别"><span class="toc-text">原始值和引用值类型和区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的存放"><span class="toc-text">变量的存放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原始值和引用值的传递问题"><span class="toc-text">原始值和引用值的传递问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断数据类型"><span class="toc-text">如何判断数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof"><span class="toc-text">typeof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof"><span class="toc-text">instanceof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-toString-call"><span class="toc-text">Object.prototype.toString.call()</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -439,65 +449,110 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  这是初学之后整理出来的一些笔记，在写之前，也看了很多大佬写的关于变量提升的笔记，在这里附上对我很有帮助的一篇文章（<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" title="传送门" target="_blank" rel="noopener">传送门</a>），希望也可以帮助到正在看的你们呀！！！</p>
-<p>  随着不断学习不乱加深理解，会不断更新此笔记</p>
-<a id="more"></a>
+        <h2 id="原始值和引用值类型和区别"><a href="#原始值和引用值类型和区别" class="headerlink" title="原始值和引用值类型和区别"></a>原始值和引用值类型和区别</h2><p>在javaScript中，变量可以储存两种值：原始值和引用值。</p>
+<ul>
+<li><p>基本类型：原始值代表原始数据类型的值，比如Number、String、Boolean、Null、Undefined、Symbol</p>
+</li>
+<li><p>引用类型：引用值指的是复合数据类型的值，比如Object（包括数组）、Function、Date、RegExp。所有引用类型都是Object的实例。</p>
+</li>
+</ul>
+<h2 id="变量的存放"><a href="#变量的存放" class="headerlink" title="变量的存放"></a>变量的存放</h2><ul>
+<li>基本类型的数据存放在<strong>栈内存</strong>中，基本值在内存中占有固定大小的空间，在栈内存中按值查找。（这里需要注意的是，虽然字符串长度可变，但是ECMAscript还是将它归为基本类型）</li>
+<li>引用类型的数据存放在<strong>堆内存</strong>中，引用值的大小不固定，但是他们的内存地址的固定大小的，因此可以将引用值的内存地址存放在栈内存中。也就是当查询引用类型的变量时，先<strong>从栈中读取内存地址</strong>，再<strong>通过地址找到堆中的值</strong></li>
+</ul>
+<p>在计算机的数据结构中，栈比堆的运算速度快，而将数组扩充、对象属性的添加等操作放在堆中，可以保证栈的效率不被影响。</p>
+<h2 id="原始值和引用值的传递问题"><a href="#原始值和引用值的传递问题" class="headerlink" title="原始值和引用值的传递问题"></a>原始值和引用值的传递问题</h2><p>这部分是面试和笔记常见的考点，敲黑板，都给我记!</p>
+<ul>
+<li><p>原始值的传递：当我们把一个原始变量传递给另一个原始变量时，其实是把栈空间中的内容复制到另一个栈空间中，这时候<strong>两个原始值传递互并不影响</strong>。</p>
+<pre><code>let a = 1;
+let b = a ;
+a = 2;
+console.log(a);    // 2
+console.log(b);    // 1</code></pre></li>
+<li><p>引用值传递： 其实变量中<strong>存放的是指向引用值的指针</strong>，所以当我们将一个引用变量传递给另一个引用变量时，其实是将这个指针复制了一份传递给另一个变量。简单来说，这<strong>两个变量都指向同一个引用值</strong>（假设是对象）。当通过方法修改其中一个变量引用的对象的属性后，通过另一个变量访问这个对象，会发现属性值也随之改变了。</p>
+<pre><code>let a = {
+    value: 1
+};
+let b = a;
+a.value = 2;
+console.log(a.value);    // 2
+console.log(b.value);    // 2</code></pre></li>
+</ul>
+<h2 id="如何判断数据类型"><a href="#如何判断数据类型" class="headerlink" title="如何判断数据类型"></a>如何判断数据类型</h2><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>typeof是一元操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回结果用该类型的字符串（全小写）表示,共7种：number、string、boolean、symbol、object、function、undefined</p>
+<pre><code>typeof 1;   // number 有效判断
+typeof &quot;hello world&quot;;  // string 有效判断
+typeof true;    // boolean 有效判断
+typeof Symbol();   // symblo 有效判断
+typeof new Function;   // function 有效判断
+typeof undefined;    // undefined 有效判断
 
-<h2 id="变量提升-函数提升"><a href="#变量提升-函数提升" class="headerlink" title="变量提升/函数提升"></a>变量提升/函数提升</h2><h3 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h3><p>先看一个栗子：</p>
-<pre><code>(function () {
-    console.log(x);
-    var x = &apos;javascript&apos;;
-})();
-
-//undefined</code></pre><p>上面的栗子在控制台查看并不会报错，而是输出<code>undefined</code>，这就涉及到变量提升的问题，实际操作代码是下面的样子：</p>
-<pre><code>(function () {
-    var x ;
-    console.log(x);
-    x = &apos;javascript&apos;;
-})();</code></pre><p>无论变量的声明在哪个地方，javascript引擎都会<strong>在代码被执行前将变量的声明提前处理</strong>，可以简单地认为这些声明被移动到了代码的最顶端，这就是提升过程。</p>
-<p>但要注意以下的栗子并不涉及变量提升，只是代码在操作时，因为<strong>同名而产生的覆盖</strong>：</p>
-<pre><code>var x = function() {};
-x= &apos;javascript&apos;;
-console.log(&apos;x的值为:&apos; + x);  
-
-//x的值为:javascript</code></pre><h3 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h3><p><strong>函数被优先提升</strong>，才会提升变量。</p>
-<p>该注意的是以下两种函数定义的方式，容易造成混淆：</p>
-<pre><code>//函数声明式
-(function () {
-    f();
-    function f() {
-        console.log(&apos;这是函数声明式&apos;)
+typeof null;   // object  无效判断
+typeof new Object;   // object 无效判断
+typeof [];     // object 无效判断
+typeof new Date();   // object 无效判断
+typeof new RegExp();   // object 无效判断</code></pre><p>这里我要放一个我自己之前混起来的点（但是现在解决啦嘿嘿~）</p>
+<pre><code>typeof Object;    // function
+typeof new Object;    // object</code></pre><p>检讨： 为什么会混起来！！！忘记了Object是对象的构造函数! 当然new Date和Date也是这样的，其他的也是！要举一反三哦！</p>
+<p>总结：</p>
+<ul>
+<li>typeof可以准确判断除null之外的基本类型结果</li>
+<li>对于null，返回结果是object</li>
+<li>对于引用类型，除function之外返回object</li>
+<li>对于function，返回结果为function</li>
+</ul>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof用来判断A是否为B的实例(A instanceof B),如果是，则返回<code>true</code>，如果不是则返回<code>false</code>。</p>
+<p>instanceof实现逻辑如下：</p>
+<pre><code>instanceof(A,B) {
+    if(A.__proto__ === B.prototype) {
+        return true
     }
-})();</code></pre><p>这个方法在控制台的输出是：<code>这是函数声明式</code>，无报错，<strong>函数声明被提升了</strong>。</p>
-<pre><code>//函数表达式
-(function () {
-    f();
-    var f = function() {
-        console.log(&apos;这是函数表达式&apos;)
-    };  
-})();</code></pre><p>这个方法在操作台报错：<code>TypeError: f is not a function</code>，这个方法<strong>函数声明不会被提升</strong></p>
-<h2 id="那变量提升到底是怎么回事？"><a href="#那变量提升到底是怎么回事？" class="headerlink" title="那变量提升到底是怎么回事？"></a>那变量提升到底是怎么回事？</h2><p>这里涉及到的知识点：<a href="https://github.com/mqyqingfeng/Blog/issues/5" target="_blank" rel="noopener">执行上下文之变量对象</a>和具体<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" target="_blank" rel="noopener">参考</a>.</p>
-<p>在我的初步理解是：</p>
-<p> 在一段代码被执行时会创建对应的执行上下文，一个执行上下文的生命周期分为<strong>创建</strong>和<strong>执行</strong>两个阶段.</p>
-<p><strong>变量对象的创建</strong>，经历以下过程：</p>
-<ol>
-<li><p>建立arguments对象。检查当前上下文中的参数，建立该对象下的属性与属性值。</p>
-</li>
-<li><p>检查当前上下文的函数声明，也就是使用<code>function</code>关键字声明的函数。在变量对象中以函数名建立一个属性，属性值为指向该函数所在内存地址的引用。如果函数名的属性已经存在，那么该属性将会被新的引用所覆盖。(常说的函数优先被提升, 且同名会产生覆盖)</p>
-</li>
-<li><p>检查当前上下文中的变量声明，每找到一个变量声明，就在变量对象中以变量名建立一个属性，属性值为<code>undefined</code>。如果该变量名的属性已经存在，为了防止同名的函数被修改为<code>undefined</code>，则会 直接跳过。</p>
-</li>
-</ol>
-<p>看下面的栗子：</p>
-<pre><code>function fun () {}
-var fun = &apos;javascript&apos;
-console.log(fun);
-
-// &apos;javascript&apos;</code></pre><p>在创建阶段：javascript引擎先将函数<code>fun</code>提升到对象变量（VO）中，创建一个<code>fun</code>属性，属性值是指向该函数的内存地址的引用，然后再将变量<code>fun</code>提升到对象变量中，因为<strong>存在同名函数</strong>，所以跳过<code>undefined</code>的赋值。(这里没有弄明白的是提升后只存在一个<code>fun</code>属性，还是两个同名属性，目前先按只存在一个属性理解的，等我弄明白了再更新)</p>
-<p>变量对象里的属性<strong>只可读不可改</strong>。</p>
-<p>然后进入到执行阶段：变量对象变成活动对象（AO），开始赋值，执行代码。将属性<code>fun</code>的属性值变为<code>javascript</code>,这样在控制台打印时出现的就是<code>javascript</code>。</p>
-<p>活动对象的属性值可以改变。</p>
-<p>大概就是这样的笔记了，继续学习，继续进步吧。</p>
+    return false
+}</code></pre><p>这里就扯到原型链了，instanceof其实是在原型链上寻找构造函数的原型和实例对象的关系，如果实例对象通过__proto__指向构造函数的原型（及Parent.prototype === p.__proto__），则返回<code>true</code>。</p>
+<p><img src="prototype.png" alt></p>
+<p>我们来瞅瞅这几个栗子：</p>
+<pre><code>1 instanceof Number;   // false
+&quot;hello world&quot; instanceof String;    // false
+true instanceof Boolean;  // false
+null instanceof Object;  // false   快看！这个和typeof返回的不一样！！！！
+null instanceof Null;    // 报错 实际并不存在
+undefined instanceof Undefinef;   // 报错 实际并不存在</code></pre><p>instanceof没办法判断原始值的类型！原因是<strong>原始值并没有转换成对象</strong>，instanceof是没办法检测到原型的，所以直接返回<code>false</code>。</p>
+<p>不过下面这些都是可以判断的啦，我没有写全！</p>
+<pre><code>new Date instanceof Date;  // true
+new Function instanceof Function;  //true
+[] instanceof Array;  // true
+[] instanceof Object;  // true
+...</code></pre><p>大家快看看这个[]，其实并不是判断错了哦，只是[].__proto__ === Array.prototype,而且[].__proto__.__proto__ === Object.prototype，所以Instanceof顺着原型链找到这个结果，就返回<code>true</code>了</p>
+<p>然后今天学到了完整的instanceof功能实现：</p>
+<pre><code>function myInstanceof(left,right) {
+    // 首先如果是基本类型及null直接返回false
+    if(typeof left !== &apos;object&apos; || left == null) return false;
+    let proto = Object.getPrototypeOf(left);
+    while(true) {
+        // 如果把原型链找到底了都没有找到
+        if(proto == null)  return false;
+        // 找到了
+        if(proto == right.prototype)  return true;
+        // 在原型链上找原型的原型
+        proto = Object.getPrototyprOf(proto);
+    }
+}</code></pre><h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>当一个函数被创建的时候，JS引擎就会为它加上prototype原型，而prototype存在一个constructor属性，指向这个函数的引用。</p>
+<p><img src="prototype.png" alt></p>
+<p>所以constructor判断数据类型的原理其实就是通过寻找构造函数来判断类型</p>
+<pre><code>function F() {}
+var f = new F();
+f.constructor === F;   // true
+或者
+f.__proto__.constructor === F   // true</code></pre><p>瞅瞅这些热乎乎的栗子呀：</p>
+<pre><code>new Date().constructor === Date; // true
+new Function().constructor === Function; // true
+&quot;hello world &quot;.constructor === String;  // true</code></pre><p>这里要注意的是访问原型上的内置函数和属性,会导致基本类型到引用类型的转换！所以”hello world”现在已经变成了引用类型了。</p>
+<h3 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h3><p>toString()是Object原型上的方法，调用该方法，会返回当前对象的[[Class]]属性，[[Class]]是对象的内部属性，里面包含了对象的类型信息，其格式为[object Xxx],其中Xxx就是对应的具体类型。</p>
+<p>对于Object对象，只需要直接调用此方法</p>
+<pre><code>var obj = {};
+obj.toString();    // [object Object]</code></pre><p>而对于其他对象，则需要通过call或者apply来绑定调用的对象</p>
+<pre><code>Object.prototype.toString.call(&apos;&apos;) ;  // [object String]
+Object.prototype.toString.call(1) ;   // [object Number]</code></pre><p>但是这个方法其实也有缺陷的！让我们瞅瞅ES6提出的Symbol.toStringTag符号，这个符号是所有对象都具有的属性，它的功能是定义对象[object Xxx]中的Xxx。</p>
+<p><img src="symbol.png" alt></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -507,12 +562,12 @@ console.log(fun);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>javaScript中的变量提升和函数提升</p>
+    <p><span class="copy-title">文章标题:</span>javaScript复习—基本类型、引用类型已经判断数据类型的办法</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2018-08-03, 10:29:02</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-23, 23:46:19</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/08/03/javaScript中的变量提升和函数提升/" title="javaScript中的变量提升和函数提升">http://yoursite.com/2018/08/03/javaScript中的变量提升和函数提升/</a>
+    <p><span class="copy-title">发布时间:</span>2019-11-29, 23:15:46</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-16, 12:37:22</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/11/29/javaScript复习—基本类型、引用类型已经判断数据类型的办法/" title="javaScript复习—基本类型、引用类型已经判断数据类型的办法">http://yoursite.com/2019/11/29/javaScript复习—基本类型、引用类型已经判断数据类型的办法/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

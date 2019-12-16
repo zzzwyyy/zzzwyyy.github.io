@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>javaScript中的变量提升和函数提升 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content=" javaScript ">
-  <meta name="description" content="javaScript中的变量提升和函数提升 | zzzwyyy的个人博客">
+  <title>JavaScript复习—闭包 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content=" javaScript , javaScript面试 ">
+  <meta name="description" content="JavaScript复习—闭包 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="2019/12/9 Monday 今天的零碎知识点收尾上周遗留问题“call、apply、bind区别” 什么是闭包？闭包怎么形成的？闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function">
 <meta property="og:type" content="article">
@@ -383,25 +383,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-javaScript中的变量提升和函数提升" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JavaScript复习—闭包" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">javaScript中的变量提升和函数提升</h1>
+        <h1 class="article-title">JavaScript复习—闭包</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            
+                <a  data-rel="javaScript">javaScript</a>/
+            
+                <a  data-rel="面试">面试</a>
+            
+        </span>
         
         
         <span class="tag">
             
             <a class="color1">javaScript</a>
             
+            <a class="color3">javaScript面试</a>
+            
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-11-23 23:46:19'>2018-08-03 10:29</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-16 12:36:44'>2019-12-14 18:50</time>
         
     </div>
     <div class="article-meta">
@@ -423,7 +433,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量提升-函数提升"><span class="toc-text">变量提升/函数提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-变量提升"><span class="toc-text">1.变量提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-函数提升"><span class="toc-text">2.函数提升</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#那变量提升到底是怎么回事？"><span class="toc-text">那变量提升到底是怎么回事？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包是怎么形成的"><span class="toc-text">闭包是怎么形成的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的表现形式？（那些地方体现了闭包？）"><span class="toc-text">闭包的表现形式？（那些地方体现了闭包？）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何销毁闭包"><span class="toc-text">如何销毁闭包</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -439,65 +449,145 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  这是初学之后整理出来的一些笔记，在写之前，也看了很多大佬写的关于变量提升的笔记，在这里附上对我很有帮助的一篇文章（<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" title="传送门" target="_blank" rel="noopener">传送门</a>），希望也可以帮助到正在看的你们呀！！！</p>
-<p>  随着不断学习不乱加深理解，会不断更新此笔记</p>
-<a id="more"></a>
-
-<h2 id="变量提升-函数提升"><a href="#变量提升-函数提升" class="headerlink" title="变量提升/函数提升"></a>变量提升/函数提升</h2><h3 id="1-变量提升"><a href="#1-变量提升" class="headerlink" title="1.变量提升"></a>1.变量提升</h3><p>先看一个栗子：</p>
-<pre><code>(function () {
-    console.log(x);
-    var x = &apos;javascript&apos;;
-})();
-
-//undefined</code></pre><p>上面的栗子在控制台查看并不会报错，而是输出<code>undefined</code>，这就涉及到变量提升的问题，实际操作代码是下面的样子：</p>
-<pre><code>(function () {
-    var x ;
-    console.log(x);
-    x = &apos;javascript&apos;;
-})();</code></pre><p>无论变量的声明在哪个地方，javascript引擎都会<strong>在代码被执行前将变量的声明提前处理</strong>，可以简单地认为这些声明被移动到了代码的最顶端，这就是提升过程。</p>
-<p>但要注意以下的栗子并不涉及变量提升，只是代码在操作时，因为<strong>同名而产生的覆盖</strong>：</p>
-<pre><code>var x = function() {};
-x= &apos;javascript&apos;;
-console.log(&apos;x的值为:&apos; + x);  
-
-//x的值为:javascript</code></pre><h3 id="2-函数提升"><a href="#2-函数提升" class="headerlink" title="2.函数提升"></a>2.函数提升</h3><p><strong>函数被优先提升</strong>，才会提升变量。</p>
-<p>该注意的是以下两种函数定义的方式，容易造成混淆：</p>
-<pre><code>//函数声明式
-(function () {
-    f();
-    function f() {
-        console.log(&apos;这是函数声明式&apos;)
+        <h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。</p>
+<h2 id="闭包是怎么形成的"><a href="#闭包是怎么形成的" class="headerlink" title="闭包是怎么形成的"></a>闭包是怎么形成的</h2><p>闭包形成的本质其实是，<strong>存在指向父级作用域的引用</strong>。</p>
+<pre><code>let value = 1; 
+function f1() {
+    let value = 2;
+    function f2() {
+       let value = 3;
+       console.log(value);    //  这里引用了父级f1的作用域
     }
-})();</code></pre><p>这个方法在控制台的输出是：<code>这是函数声明式</code>，无报错，<strong>函数声明被提升了</strong>。</p>
-<pre><code>//函数表达式
-(function () {
-    f();
-    var f = function() {
-        console.log(&apos;这是函数表达式&apos;)
-    };  
-})();</code></pre><p>这个方法在操作台报错：<code>TypeError: f is not a function</code>，这个方法<strong>函数声明不会被提升</strong></p>
-<h2 id="那变量提升到底是怎么回事？"><a href="#那变量提升到底是怎么回事？" class="headerlink" title="那变量提升到底是怎么回事？"></a>那变量提升到底是怎么回事？</h2><p>这里涉及到的知识点：<a href="https://github.com/mqyqingfeng/Blog/issues/5" target="_blank" rel="noopener">执行上下文之变量对象</a>和具体<a href="https://juejin.im/post/5d0caf64f265da1b7b31930f" target="_blank" rel="noopener">参考</a>.</p>
-<p>在我的初步理解是：</p>
-<p> 在一段代码被执行时会创建对应的执行上下文，一个执行上下文的生命周期分为<strong>创建</strong>和<strong>执行</strong>两个阶段.</p>
-<p><strong>变量对象的创建</strong>，经历以下过程：</p>
-<ol>
-<li><p>建立arguments对象。检查当前上下文中的参数，建立该对象下的属性与属性值。</p>
-</li>
-<li><p>检查当前上下文的函数声明，也就是使用<code>function</code>关键字声明的函数。在变量对象中以函数名建立一个属性，属性值为指向该函数所在内存地址的引用。如果函数名的属性已经存在，那么该属性将会被新的引用所覆盖。(常说的函数优先被提升, 且同名会产生覆盖)</p>
-</li>
-<li><p>检查当前上下文中的变量声明，每找到一个变量声明，就在变量对象中以变量名建立一个属性，属性值为<code>undefined</code>。如果该变量名的属性已经存在，为了防止同名的函数被修改为<code>undefined</code>，则会 直接跳过。</p>
-</li>
-</ol>
-<p>看下面的栗子：</p>
-<pre><code>function fun () {}
-var fun = &apos;javascript&apos;
-console.log(fun);
+    return f2;
+}
+let x = f1();
+x();    // 2</code></pre><p>在ES5中存在两种作用域——全局作用域和函数作用域。</p>
+<p>在上面这个栗子中，x是对f2函数的引用，而f2函数指向window、f1和f2本身的作用域，这就是一条作用域链。当访问<code>value</code>这个变量时，至底层往上寻找，先在f2本身的作用域中寻找，没找到就顺着作用域链到f1的作用域中寻找，找到了就返回该变量的值，如果找到window作用域了都没找到则报错。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>用下面的这个栗子来分析理解一下作用域链：</p>
+<pre><code>function foo() {
+    let a = 1;
+    function bar() {
+        let a = 2;
+        function baz() {
+            let a = 3;
+            console.log(a);
+        }
+        baz();
+    }
+    bar();
+}
+foo();</code></pre><ul>
+<li><p>在全局作用域中调用foo()时，创建了foo的临时OA对象：</p>
+<pre><code>foo-OA {
+    a: 1
+    bar: function()
+}    </code></pre></li>
+<li><p>在foo函数中调用了bar函数，同样生成了bar的临时OA对象：</p>
+<pre><code>bar-OA {
+    a: 2
+    baz: function()
+}</code></pre></li>
+<li><p>在bar函数中调用baz函数，生成baz的临时OA对象：</p>
+<pre><code>baz-OA {
+    a: 3
+}</code></pre></li>
+</ul>
+<p>这个时候就可以将作用域链连起来啦：window -&gt; foo-OA -&gt; bar-OA -&gt; bar-OA;</p>
+<p>于是我们访问变量a的时候，顺着底层开始寻找，在baz-OA对象中找到了a=3的结果；如果我们把baz-OA对象中的<code>a:3</code>去掉，那么JS引擎会找到bar-OA对象中的a=2，同理往下类推，如果最后在全局中也没有找到，就会报错。</p>
+<p>再看看下面的这个栗子：</p>
+<pre><code>let a = 1;
+function foo(){
+  let a = 2;
+  function baz(){            
+    console.log(a);     
+  }
+  bar(baz);
+}
+function bar(fn){
+  let a = 3;    
+  fn();
+}
+foo();     </code></pre><p>看看这个栗子，它输出的结果是2，不是3哦！</p>
+<p>让我们看看作用域链：</p>
+<p>作用域链：</p>
+<pre><code>window {
+    a: 1
+    foo: function()
+}
+-&gt; foo-OA {
+    a: 2
+    baz: function()
+    }
+    -&gt; bar-OA {
+        a: 2
+        baz: function()
+      }
+      -&gt; baz-OA {
+         a: -&gt; foo-OA.a    // 访问了foo-OA的a,形成了闭包，把foo的a包裹到了它的作用域里。
+        }</code></pre><p>简单一句话就是：baz函数形成了闭包，把foo的a变量包裹到自己的作用域里，而baz作为参数传给了bar。</p>
+<p>看看上面的作用域链，虽然baz没有自己作用域中的a变量，但是在定义的时候访问了foo-OA的a,形成了闭包，把foo的a包裹到了它的作用域里。所以在调用形成作用域链的时候，baz执行console.log的时候，要去找a变量，那么baz-OA中有a，所以输出2，并不用找到链的上层bar-OA中的a。</p>
+<h2 id="闭包的表现形式？（那些地方体现了闭包？）"><a href="#闭包的表现形式？（那些地方体现了闭包？）" class="headerlink" title="闭包的表现形式？（那些地方体现了闭包？）"></a>闭包的表现形式？（那些地方体现了闭包？）</h2><ol>
+<li><p>返回一个函数</p>
+<pre><code> let value = 1; 
+    function f1() {
+        let value = 2;
+        function f2() {
+           let value = 3;
+           console.log(value);    
+        }
+        return f2;
+    }
+let x = f1();
+x();</code></pre></li>
+<li><p>做为函数参数传递</p>
+<pre><code>let a = 1;
+function foo(){
+  let a = 2;
+  function baz(){            
+    console.log(a);     
+  }
+  bar(baz);
+}
+function bar(fn){
+  fn();
+}
+foo();  </code></pre></li>
+<li><p>在定时器，事件监听，Ajax请求或者任何异步操作中，只要使用了回调函数，实际就是使用了闭包！</p>
+<pre><code>// 定时器
+setTimeout(function timeHandler() {
+    console.log(&apos;延时了100毫秒&apos;)
+},100)
 
-// &apos;javascript&apos;</code></pre><p>在创建阶段：javascript引擎先将函数<code>fun</code>提升到对象变量（VO）中，创建一个<code>fun</code>属性，属性值是指向该函数的内存地址的引用，然后再将变量<code>fun</code>提升到对象变量中，因为<strong>存在同名函数</strong>，所以跳过<code>undefined</code>的赋值。(这里没有弄明白的是提升后只存在一个<code>fun</code>属性，还是两个同名属性，目前先按只存在一个属性理解的，等我弄明白了再更新)</p>
-<p>变量对象里的属性<strong>只可读不可改</strong>。</p>
-<p>然后进入到执行阶段：变量对象变成活动对象（AO），开始赋值，执行代码。将属性<code>fun</code>的属性值变为<code>javascript</code>,这样在控制台打印时出现的就是<code>javascript</code>。</p>
-<p>活动对象的属性值可以改变。</p>
-<p>大概就是这样的笔记了，继续学习，继续进步吧。</p>
+// 事件监听
+$(&apos;#app&apos;).click(function() {
+    console.log(&apos;DOM Listener&apos;);
+})</code></pre></li>
+<li><p>IIFE（立即执行函数）创建闭包。</p>
+<pre><code>var a = 2;
+(function IIFE(){
+  // 输出2
+  console.log(a);
+})();</code></pre></li>
+</ol>
+<h2 id="如何销毁闭包"><a href="#如何销毁闭包" class="headerlink" title="如何销毁闭包"></a>如何销毁闭包</h2><p>看看这个简单的栗子，这是最简单的返回函数的闭包：</p>
+<pre><code>function foo() {
+    let a = 4;
+    return function() {
+        console.log(a);
+    }
+}
+let bar = foo();</code></pre><p>当执行<code>let bar = foo()</code>时，形成了foo-OA对象：</p>
+<pre><code>foo-OA {
+    a: 4
+}</code></pre><p>一般的函数执行完之后，临时OA是会被消除的，但是<strong>这里不会</strong></p>
+<p>bar -&gt; 引用foo返回函数 -&gt; 返回函数闭包中包裹着foo-OA中的a变量</p>
+<p>因此bar一直保持着对foo-OA的引用，所以当foo()执行结束后并不会销毁foo-OA对象。</p>
+<p>那么我们怎么使用闭包呢？</p>
+<pre><code>bar();</code></pre><p>这样就成功调用了，并且形成了bar的临时OA:</p>
+<pre><code>bar-OA {
+    a: -&gt; foo-OA.a
+}</code></pre><p>在bar调用结束后，bar-OA被销毁了，但是bar对foo-OA.a的引用还存在呀！</p>
+<p>那么我们只需要<strong>bar = null</strong> 就可以销毁引用，进而销毁foo-OA对象了。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -507,12 +597,12 @@ console.log(fun);
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>javaScript中的变量提升和函数提升</p>
+    <p><span class="copy-title">文章标题:</span>JavaScript复习—闭包</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2018-08-03, 10:29:02</p>
-    <p><span class="copy-title">最后更新:</span>2019-11-23, 23:46:19</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/08/03/javaScript中的变量提升和函数提升/" title="javaScript中的变量提升和函数提升">http://yoursite.com/2018/08/03/javaScript中的变量提升和函数提升/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-14, 18:50:05</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-16, 12:36:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/14/JavaScript复习—闭包/" title="JavaScript复习—闭包">http://yoursite.com/2019/12/14/JavaScript复习—闭包/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
