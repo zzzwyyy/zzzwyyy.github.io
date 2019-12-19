@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>javaScript继承 | zzzwyyy的个人博客</title>
-  <meta name="keywords" content>
-  <meta name="description" content="javaScript继承 | zzzwyyy的个人博客">
+  <title>JavaScript复习—this绑定 | zzzwyyy的个人博客</title>
+  <meta name="keywords" content=" javaScript , javaScript面试 ">
+  <meta name="description" content="JavaScript复习—this绑定 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="什么是闭包闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包是怎么形成的闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function f2() {        let value = 3;        console.log(value">
 <meta name="keywords" content="javaScript,javaScript面试">
@@ -400,19 +400,35 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-javaScript继承" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JavaScript复习—this绑定" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">javaScript继承</h1>
+        <h1 class="article-title">JavaScript复习—this绑定</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="javaScript">javaScript</a>/
+            
+                <a  data-rel="面试">面试</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">javaScript</a>
+            
+            <a class="color3">javaScript面试</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-22 00:01:00'>2019-09-21 23:48</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-19 16:11:42'>2019-12-19 15:56</time>
         
     </div>
     <div class="article-meta">
@@ -434,7 +450,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#借用构造函数"><span class="toc-text">借用构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合继承"><span class="toc-text">组合继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型继承"><span class="toc-text">原型继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生式继承"><span class="toc-text">寄生式继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#寄生组合式继承"><span class="toc-text">寄生组合式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#补充"><span class="toc-text">补充</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#先了解一下this的四种绑定"><span class="toc-text">先了解一下this的四种绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-默认绑定"><span class="toc-text">1. 默认绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-隐式绑定"><span class="toc-text">2.隐式绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-显示绑定"><span class="toc-text">3. 显示绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-new绑定"><span class="toc-text">4. new绑定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数和普通函数的this区别"><span class="toc-text">箭头函数和普通函数的this区别</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -450,90 +466,96 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><p>这是经典的继承方式。</p>
-<p>栗子：</p>
-<pre><code>function Father() {
-    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+        <h2 id="先了解一下this的四种绑定"><a href="#先了解一下this的四种绑定" class="headerlink" title="先了解一下this的四种绑定"></a>先了解一下this的四种绑定</h2><p>首先需要明确的一点是，<strong>this并不是在函数被定义时绑定，而是在函数被调用时</strong>。</p>
+<p><code>this</code>的绑定规则有以下五种：</p>
+<ul>
+<li>默认绑定（严格/非严格模式）</li>
+<li>显示绑定（call、apply方法）</li>
+<li>隐式绑定</li>
+<li><code>new</code>绑定</li>
+</ul>
+<h3 id="1-默认绑定"><a href="#1-默认绑定" class="headerlink" title="1. 默认绑定"></a>1. 默认绑定</h3><p>独立函数调用：直接调用函数，使用默认绑定；</p>
+<ul>
+<li><p>严格模式：this绑定到<code>undifined</code>；</p>
+</li>
+<li><p>非严格模式：函数在非严格模式时将默认绑定到全局对象上。</p>
+<pre><code>function foo() {
+    console.log(this.a);
 }
-function Son() {
-    Father.call(this);  
+let a = 1;
+foo() // 1</code></pre></li>
+</ul>
+<h3 id="2-隐式绑定"><a href="#2-隐式绑定" class="headerlink" title="2.隐式绑定"></a>2.隐式绑定</h3><p>函数在被调用时，如果存在上下文对象，那么this会绑定到这个上下文对象上。</p>
+<pre><code>function foo() {
+    console.log(this.a)
 }
-var instance1 = new Son();
-alert( Father.prototype.isPrototypeOf(instance1))  //false
-instance1.colors.push(&quot;black&quot;);
-console.log(instance1.colors);   //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;black&quot;
-
-var instance2 = new Son();
-console.log(instance2.colors);  //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot; 可见引用类型值是独立的</code></pre><p>只是借用了Father构造函数，但并没有改变_proto_指针的指向，Father函数并不在instance1的原型链上。</p>
-<p>这个继承方法解决了两个问题：</p>
-<ol>
-<li>保证了引用类型属性值是独立的，不再被所有实例共享；</li>
-<li>子类型创建时也能向父类传递参数。</li>
-</ol>
-<a id="more"></a>
-
-<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><p>上一种方法只是调用了Father构造函数，但是没办法调用Father.prototype上的方法。</p>
-<p>组合继承将原型链和借用构造函数继承结合在一起，既能借用构造函数，也能继承原型链上的方法。</p>
-<p>栗子：</p>
-<pre><code>function Father1(name) {                  //使用借用构造函数方法继承
-    this.colors = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;]; 
-    this.name = name; 
-} 
-Father1.prototype.sayName = function() {  //借用原型链继承此方法
-    alert(this.name); 
+let obj = {
+    a: 1,
+    foo: foo
 };
-
-function Son1(name,age) {
-    Father1.call(this,name);
-    this.age = age; 
+let a = 2;
+obj.foo();         // 1</code></pre><p>显然这个函数<code>foo()</code>被调用时落脚点是obj对象。<strong>obj对象里的foo引用了foo函数，所以当调用<code>obj.foo()</code>时，隐式绑定了</strong>。 </p>
+<pre><code>let foo = function () {
+  console.log(this.a)
 }
-
-Son1.prototype = new Father1();
-Son1.prototype.sayAge = function() {
-    alert(this.age);
+let obj2 = {
+  a: 2
+  foo: foo
+}
+let obj1 = {
+  a: 1
+  obj2: obj2
 };
-
-var instance3 = new Son1(&quot;peter&quot;,15);
-instance3.colors.push(&quot;black&quot;);
-console.log(instance3.colors)   //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;black&quot;
-instance3.sayName();    //&quot;peter&quot;
-instance3.sayAge();     //15
-
-var instance4 = new Son(&quot;liHua&quot;,20);
-console.log(instance4.colors);  //&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;
-instance3.sayName();    //&quot;liHua&quot;
-instance3.sayAge();     //20</code></pre><p>这是Javascript最常用的继承方式，而且, instanceof 和 isPrototypeOf( )也能用于识别基于组合继承创建的对象.</p>
-<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><pre><code>var person = {
-    name : [&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;]
+obj1.obj2.foo();       // 2</code></pre><p>(这个我没想好要怎么讲…先留着…)</p>
+<p>但是应用隐式绑定this存在一个问题，那就是<strong>隐式丢失</strong>。</p>
+<p>看下面这个栗子：</p>
+<pre><code>function foo() {
+    console.log(this.a)
+}
+let obj = {
+    a: 1,
+    foo: foo
 };
-var anotherPerson = Object.create(person);
-anotherPerson.name.push(&quot;huTai&quot;);
-console.log(anotherPerson.name);          //&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;,&quot;huTai&quot;
-console.log(person.name);           //&quot;liHua&quot;,&quot;wangHua&quot;,&quot;baiXue&quot;,&quot;huTai&quot;</code></pre><p>将person对象传入Object函数中，得到一个新对象，这个新对象以person为原型，则原型中包含的引用类型值属性被共享了，既person.name不仅被person所有，而且也被anotherPerson共享。</p>
-<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象,最后返回被增强的对象。</p>
-<pre><code>var clonePerson = function(original) {
-    var clone = Object(original);  //通过Object函数创建一个以接收对象为原型的新对象
-    clone.sayHi = function() {  //增强这个对象
-        alert(&quot;Hi&quot;);
-    };
-    return clone;  //返回对象
-};</code></pre><h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><p>基本思路: 不必为了指定子类型的原型而调用超类型的构造函数</p>
-<pre><code>function extend(subClass,superClass){
-    var prototype = object(superClass.prototype);//创建对象
-    prototype.constructor = subClass;//增强对象
-    subClass.prototype = prototype;//指定对象
-}</code></pre><p>下面我们来看下extend的另一种更为有效的扩展.</p>
-<pre><code>function extend(subClass, superClass) {
-    var F = function() {};
-    F.prototype = superClass.prototype;
-    subClass.prototype = new F(); 
-    subClass.prototype.constructor = subClass;
-
-    subClass.superclass = superClass.prototype;
-    if(superClass.prototype.constructor == Object.prototype.constructor) {
-        superClass.prototype.constructor = superClass;
-    }
-}</code></pre><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>这篇笔记里用到的栗子出自<a href="https://juejin.im/post/58f94c9bb123db411953691b" target="_blank" rel="noopener">这里</a>。</p>
+let a = 2;
+let bar = obj.foo;
+bar();    //  2</code></pre><p>bar是指向obj.foo的一个引用，可是实际上，它引用的是foo函数本身，所以在调用<code>bar()</code>时，已经是作为独立函数调用了，这个时候执行的是默认绑定。</p>
+<h3 id="3-显示绑定"><a href="#3-显示绑定" class="headerlink" title="3. 显示绑定"></a>3. 显示绑定</h3><p>通过call()、apply()的方法绑定。接受一个参数，为绑定的对象，在函数调用时，将this绑定到这个对象上。</p>
+<pre><code>function foo() {
+    console.log(this.a);
+}
+let obj = {
+    a: 1,
+};
+let a = 2;
+foo.call(obj)         // 1</code></pre><p>在看刚才那个隐式丢失的栗子：</p>
+<pre><code>function foo() {
+    console.log(this.a)
+}
+let obj = {
+    a: 1,
+    foo: foo
+};
+let a = 2;
+let bar = obj.foo;
+bar.call(obj);    //  1</code></pre><p>所以用call()、apply()可以解决隐式丢失的问题。</p>
+<h3 id="4-new绑定"><a href="#4-new绑定" class="headerlink" title="4. new绑定"></a>4. new绑定</h3><p>构造函数其实是使用<code>new</code>操作调用的一个普通函数，包括内置函数在内的所有函数都可以用<code>new</code>操作符来调用，称为<strong>构造函数调用</strong>。</p>
+<p>实际上并不存在所谓的构造函数，确切的说是<strong>函数的构造调用</strong>。</p>
+<p><code>new</code>一个函数会执行下面操作：</p>
+<ul>
+<li>创建一个新的对象；</li>
+<li>将这个新对象的__proto__指向构造函数的原型（prototype）；</li>
+<li>使用这个新对象调用函数，将函数的this绑定到这个新对象上；</li>
+<li>如果函数里没有返回对象，那么返回这个创建的新对象。但是如果return 了一个对象，那么这个新对象作废。</li>
+</ul>
+<pre><code>function Foo(a) {
+    this.a = a;
+}
+let bar = new Foo(2);
+console.log(bar.a);   // 2</code></pre><h2 id="箭头函数和普通函数的this区别"><a href="#箭头函数和普通函数的this区别" class="headerlink" title="箭头函数和普通函数的this区别"></a>箭头函数和普通函数的this区别</h2><ul>
+<li>普通函数： this指向调用这个方法的对象（谁调用我，我的this就绑定谁）；</li>
+<li>箭头函数： 箭头函数里的this对象，就是定义时所在的对象，而不是调用时所在的对象。</li>
+</ul>
+<p><del>我之前的理解：其实箭头函数没有自己作用域下的this，它的this其实是定义时所在作用域的this值。换个说法，箭头函数的this其实是包裹这个箭头函数的普通函数的this值</del></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
@@ -543,12 +565,12 @@ console.log(person.name);           //&quot;liHua&quot;,&quot;wangHua&quot;,&quo
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>javaScript继承</p>
+    <p><span class="copy-title">文章标题:</span>JavaScript复习—this绑定</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-09-21, 23:48:55</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-22, 00:01:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/21/javaScript继承/" title="javaScript继承">http://yoursite.com/2019/09/21/javaScript继承/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-19, 15:56:59</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-19, 16:11:42</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/19/JavaScript复习—this绑定/" title="JavaScript复习—this绑定">http://yoursite.com/2019/12/19/JavaScript复习—this绑定/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

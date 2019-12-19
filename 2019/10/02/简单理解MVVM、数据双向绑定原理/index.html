@@ -6,17 +6,18 @@
   <meta name="keywords" content>
   <meta name="description" content="简单理解MVVM、数据双向绑定原理 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="请女孩子大声朗读：  我可以温柔文静、善解人意，也可以狭隘自私、不近人情。我活着是为了找寻属于我自己的快乐，而不是为了追逐谁为谁停留等待。我不在乎是否有人爱我，因为我是一朵永生花，爱不爱，我都永远美丽芬芳可爱。  从昨天开始，实验室进行两周一次的电话考核。（被问得自闭了呜呜呜） 找到的需要巩固的知识点：  内存泄漏 执行上下文 （√）匿名函数 （√）sort并不会立刻排序，而是转换二进制 bigI">
+<meta name="description" content="什么是闭包闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包是怎么形成的闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function f2() {        let value = 3;        console.log(value">
+<meta name="keywords" content="javaScript,javaScript面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记（2019&#x2F;12&#x2F;16-22）">
-<meta property="og:url" content="http://yoursite.com/2019/12/17/杂记（2019-12-16-22）/index.html">
+<meta property="og:title" content="JavaScript复习—闭包">
+<meta property="og:url" content="http://yoursite.com/2019/12/14/JavaScript复习—闭包/index.html">
 <meta property="og:site_name" content="zzzwyyy的个人博客">
-<meta property="og:description" content="请女孩子大声朗读：  我可以温柔文静、善解人意，也可以狭隘自私、不近人情。我活着是为了找寻属于我自己的快乐，而不是为了追逐谁为谁停留等待。我不在乎是否有人爱我，因为我是一朵永生花，爱不爱，我都永远美丽芬芳可爱。  从昨天开始，实验室进行两周一次的电话考核。（被问得自闭了呜呜呜） 找到的需要巩固的知识点：  内存泄漏 执行上下文 （√）匿名函数 （√）sort并不会立刻排序，而是转换二进制 bigI">
+<meta property="og:description" content="什么是闭包闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包是怎么形成的闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function f2() {        let value = 3;        console.log(value">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-18T15:04:08.705Z">
+<meta property="og:updated_time" content="2019-12-16T04:36:44.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂记（2019&#x2F;12&#x2F;16-22）">
-<meta name="twitter:description" content="请女孩子大声朗读：  我可以温柔文静、善解人意，也可以狭隘自私、不近人情。我活着是为了找寻属于我自己的快乐，而不是为了追逐谁为谁停留等待。我不在乎是否有人爱我，因为我是一朵永生花，爱不爱，我都永远美丽芬芳可爱。  从昨天开始，实验室进行两周一次的电话考核。（被问得自闭了呜呜呜） 找到的需要巩固的知识点：  内存泄漏 执行上下文 （√）匿名函数 （√）sort并不会立刻排序，而是转换二进制 bigI">
+<meta name="twitter:title" content="JavaScript复习—闭包">
+<meta name="twitter:description" content="什么是闭包闭包是可以访问另一个函数内部变量的函数，闭包的使用则是函数在它定义时的作用域以外被调用。 闭包是怎么形成的闭包形成的本质其实是，存在指向父级作用域的引用。 let value = 1;  function f1() {     let value = 2;     function f2() {        let value = 3;        console.log(value">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -143,7 +144,23 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(15)</small></div></li>
+    <li><div class="all active">全部文章<small>(16)</small></div></li>
+    
+        
+            
+            <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(3)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="面试">面试<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
     
         
             
@@ -163,26 +180,6 @@
     
         
             
-            <li><div data-rel="javaScript"><i class="fold iconfont icon-right"></i>javaScript<small>(2)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="面试">面试<small>(2)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
         
     
         
@@ -190,6 +187,10 @@
             <li><div data-rel="杂记">杂记<small>(3)</small></div>
                 
             </li>
+            
+        
+    
+        
             
         
     
@@ -203,7 +204,7 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
+<input type="hidden" id="yelog_site_posts_number" value="16">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -238,11 +239,11 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color4">CSS</a>
+        <a class="color2">CSS-面试</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">CSS-面试</a>
+        <a class="color4">CSS</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -259,20 +260,36 @@
     
     <nav id="title-list-nav">
         
-        <a  class="CSS 面试 "
-           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
-           data-tag="CSS,CSS-面试"
-           data-author="" >
-            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
-            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
-        </a>
-        
         <a  class=""
            href="/2019/11/23/CSS-两栏布局的六种实现方式/"
-           data-tag="CSS,CSS-面试"
+           data-tag="CSS-面试,CSS"
            data-author="" >
             <span class="post-title" title="CSS-两栏布局的六种实现方式">CSS-两栏布局的六种实现方式</span>
             <span class="post-date" title="2019-11-23 16:54:00">2019/11/23</span>
+        </a>
+        
+        <a  class="javaScript 面试 "
+           href="/2019/12/19/JavaScript复习—this绑定/"
+           data-tag="javaScript,javaScript面试"
+           data-author="" >
+            <span class="post-title" title="JavaScript复习—this绑定">JavaScript复习—this绑定</span>
+            <span class="post-date" title="2019-12-19 15:56:59">2019/12/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/10/09/MySQL简单学习增删改查命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL简单学习增删改查命令">MySQL简单学习增删改查命令</span>
+            <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
+        </a>
+        
+        <a  class="CSS 面试 "
+           href="/2019/01/24/CSS-三栏布局的几种实现方式/"
+           data-tag="CSS-面试,CSS"
+           data-author="" >
+            <span class="post-title" title="CSS-三栏布局的几种实现方式">CSS-三栏布局的几种实现方式</span>
+            <span class="post-date" title="2019-01-24 17:41:16">2019/01/24</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -291,20 +308,20 @@
             <span class="post-date" title="2018-08-03 10:29:02">2018/08/03</span>
         </a>
         
+        <a  class="杂记 "
+           href="/2019/12/09/杂记（2019-12-9-15）/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="杂记（2019/12/9-15）">杂记（2019/12/9-15）</span>
+            <span class="post-date" title="2019-12-09 11:23:54">2019/12/09</span>
+        </a>
+        
         <a  class=""
            href="/2019/08/14/javaScript中的原型和原型链/"
            data-tag="javaScript"
            data-author="" >
             <span class="post-title" title="javaScript中的原型和原型链">javaScript中的原型和原型链</span>
             <span class="post-date" title="2019-08-14 16:33:01">2019/08/14</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/10/09/MySQL简单学习增删改查命令/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="MySQL简单学习增删改查命令">MySQL简单学习增删改查命令</span>
-            <span class="post-date" title="2019-10-09 16:28:27">2019/10/09</span>
         </a>
         
         <a  class="javaScript 面试 "
@@ -323,6 +340,14 @@
             <span class="post-date" title="2019-12-02 23:32:02">2019/12/02</span>
         </a>
         
+        <a  class="杂记 "
+           href="/2019/12/17/杂记（2019-12-16-22）/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="杂记（2019/12/16-22）">杂记（2019/12/16-22）</span>
+            <span class="post-date" title="2019-12-17 21:33:50">2019/12/17</span>
+        </a>
+        
         <a  class=""
            href="/2019/09/21/javaScript继承/"
            data-tag=""
@@ -332,27 +357,19 @@
         </a>
         
         <a  class="杂记 "
-           href="/2019/12/09/杂记（2019-12-9-15）/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="杂记（2019/12/9-15）">杂记（2019/12/9-15）</span>
-            <span class="post-date" title="2019-12-09 11:23:54">2019/12/09</span>
-        </a>
-        
-        <a  class="杂记 "
-           href="/2019/12/17/杂记（2019-12-16-22）/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="杂记（2019/12/16-22）">杂记（2019/12/16-22）</span>
-            <span class="post-date" title="2019-12-17 21:33:50">2019/12/17</span>
-        </a>
-        
-        <a  class="杂记 "
            href="/2019/12/03/杂记（2019-12-2-8）/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="杂记（2019/12/2-8）">杂记（2019/12/2-8）</span>
             <span class="post-date" title="2019-12-03 23:34:09">2019/12/03</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/11/28/面试-数据结构/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
+            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
         <a  class=""
@@ -369,14 +386,6 @@
            data-author="" >
             <span class="post-title" title="简单说说微信小程序的底层原理">简单说说微信小程序的底层原理</span>
             <span class="post-date" title="2019-07-01 21:14:22">2019/07/01</span>
-        </a>
-        
-        <a  class=""
-           href="/2019/11/28/面试-数据结构/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="面试-数据结构">面试-数据结构</span>
-            <span class="post-date" title="2019-11-28 22:26:39">2019/11/28</span>
         </a>
         
     </nav>
@@ -521,7 +530,7 @@ vm.b = 2
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#CSS','#CSS-面试','#javaScript','#javaScript面试',],
+            'data': ['#CSS-面试','#CSS','#javaScript','#javaScript面试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
