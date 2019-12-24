@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>杂记（2019/12/16-22） | zzzwyyy的个人博客</title>
+  <title>滴滴一面 | zzzwyyy的个人博客</title>
   <meta name="keywords" content>
-  <meta name="description" content="杂记（2019/12/16-22） | zzzwyyy的个人博客">
+  <meta name="description" content="滴滴一面 | zzzwyyy的个人博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="先了解一下this的四种绑定首先需要明确的一点是，this并不是在函数被定义时绑定，而是在函数被调用时。 this的绑定规则有以下五种：  默认绑定（严格/非严格模式） 显示绑定（call、apply方法） 隐式绑定 new绑定  1. 默认绑定独立函数调用：直接调用函数，使用默认绑定；  严格模式：this绑定到undifined；  非严格模式：函数在非严格模式时将默认绑定到全局对象上。 fu">
 <meta name="keywords" content="javaScript,javaScript面试">
@@ -408,25 +408,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-杂记（2019-12-16-22）" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-滴滴一面" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">杂记（2019/12/16-22）</h1>
+        <h1 class="article-title">滴滴一面</h1>
     
     <div class="article-meta">
         
         
-        
-        <span class="book">
-            
-                <a  data-rel="杂记">杂记</a>
-            
-        </span>
         
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-23 23:27:48'>2019-12-17 21:33</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-24 17:55:29'>2019-12-24 17:55</time>
         
     </div>
     <div class="article-meta">
@@ -448,7 +442,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-16-17-Two-days"><span class="toc-text">2019/12/16-17 Two days </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS中sort函数的底层实现机制"><span class="toc-text">JS中sort函数的底层实现机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#立即执行函数（IIFE）"><span class="toc-text">立即执行函数（IIFE）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this的五种绑定（未完）"><span class="toc-text">this的五种绑定（未完）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-18-Wednesday"><span class="toc-text">2019/12/18 Wednesday </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this的五种绑定（完）"><span class="toc-text">this的五种绑定（完）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-默认绑定"><span class="toc-text">1. 默认绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-隐式绑定"><span class="toc-text">2.隐式绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-显示绑定"><span class="toc-text">3. 显示绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-new绑定"><span class="toc-text">4. new绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-箭头函数绑定"><span class="toc-text">5. 箭头函数绑定</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-21-Saturday"><span class="toc-text">2019/12/21 Saturday </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2019-12-22-Sunday"><span class="toc-text">2019/12/22 Sunday </span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -464,200 +458,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>请女孩子大声朗读：</p>
-<blockquote>
-<p>我可以温柔文静、善解人意，也可以狭隘自私、不近人情。我活着是为了找寻属于我自己的快乐，而不是为了追逐谁为谁停留等待。我不在乎是否有人爱我，因为我是一朵永生花，爱不爱，我都永远美丽芬芳可爱。</p>
-</blockquote>
-<p>从昨天开始，实验室进行两周一次的电话考核。（被问得自闭了呜呜呜）</p>
-<p>找到的需要巩固的知识点：</p>
-<ul>
-<li>内存泄漏</li>
-<li>执行上下文</li>
-<li>（√）匿名函数</li>
-<li>（√）sort并不会立刻排序，而是转换二进制</li>
-<li>bigInt</li>
-<li>（√）立即执行函数</li>
-<li>this五种绑定</li>
-</ul>
-<h1 id="2019-12-16-17-Two-days"><a href="#2019-12-16-17-Two-days" class="headerlink" title="2019/12/16-17 Two days "></a><font color="398579">2019/12/16-17 Two days </font></h1><p>周一课设结束，立刻就去做物理光学的测试考了。导致周一的学习进度为0%。</p>
-<p>开了一本新的手账本，准备尝试一下新的风格 -&gt; <strong>余白</strong>，看了别人的手账，觉得别人的余白就很高级。</p>
-<p>让自己安静了一天，决定做一个断舍离。</p>
-<h2 id="JS中sort函数的底层实现机制"><a href="#JS中sort函数的底层实现机制" class="headerlink" title="JS中sort函数的底层实现机制"></a>JS中sort函数的底层实现机制</h2><p><code>sort()</code>方法用于对数组进行排序，并返回排序好的数组，不会改变原来的数组。该注意的是：<code>sort()</code>方法是<strong>根据字符串的Unicode码点进行默认排序</strong>！！！</p>
-<p>之前的错误认知： 根据数值大小进行默认排序。于是下面的栗子直接打脸…</p>
-<pre><code>[11,1,22,2,3].sort();  // 结果：[1, 11, 2, 22, 3]</code></pre><p>所以，为了可以按照字符编码顺序来进行排序，那么就需要<strong>先把数组里的元素转换成字符串</strong>。</p>
-<p>如果想按照其他方式进行排序，那么我们只需要提供比较函数就可以了。</p>
-<pre><code>// 升序
-[11,1,22,2,3].sort((a,b) =&gt; a-b);    // 结果：[1, 2, 3, 11, 22]
-
-// 降序 
-[11,1,22,2,3].sort((a,b) =&gt; b-a);    // 结果：[22, 11, 3, 2, 1]</code></pre><p>叨叨，这里<code>a - b</code>不要理解成a减b的意思，可以理解成<strong>26字母中a到b</strong>,因为26字母中b比a大，所以就是升序；相反，<code>b - a</code> 就是降序。</p>
-<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><ol>
-<li><p>匿名函数：</p>
-<pre><code>function() {
-    console.log(&quot;我是匿名函数&quot;);
-}
-// 但是如果这样写，在运行的时候会报错
-// 外面包裹一个()就可以了</code></pre><p> 要叨叨一点的是，箭头函数并不是简单的匿名函数的语法糖，它们两者之间最大的区别就是：<strong>箭头函数内部的this是词法作用域，而匿名函数的this指向运作时调用该方法的对象</strong>。</p>
-</li>
-<li><p>怎么使用匿名函数?</p>
-<p> 很简单，在匿名函数后加一个()就行了，如果需要传值，那就写括号里</p>
-</li>
-</ol>
-<pre><code>(function(msg) {
-    console.log(msg);
-})(&apos;我是匿名函数&apos;)</code></pre><ol start="3">
-<li><p>应用匿名函数</p>
-<p> 实现闭包：</p>
-<pre><code>function fn() {
-    let a = 1;
-    return function() {
-        console.log(a)
-    }
-}
-let bar = fn();</code></pre></li>
-</ol>
-<pre><code>模拟块级作用域（私有作用域），减少全局变量。执行完匿名函数，块级作用域中的变量就会被销毁，从而节省内存空间。
-
-&gt; 其实JS中是没有块级作用域的，但是ES6增加了块级作用域，块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
-
-    (function(){
-        //这里是我们的块级作用域（私有作用域）
-    })();</code></pre><h2 id="立即执行函数（IIFE）"><a href="#立即执行函数（IIFE）" class="headerlink" title="立即执行函数（IIFE）"></a>立即执行函数（IIFE）</h2><p>由于ES5没有块作用域，所以立即执行函数就获得了广泛应用。（不过ES6加了块作用域，导致立即执行函数没有那么必要了）</p>
-<p>立即执行函数的两种表达形式：</p>
-<pre><code>// 第一种
-(function(i) {
-    ...
-})()
-
-// 第二种
-(function(i){
-    ...
-} ())</code></pre><p>该注意的是，立即执行函数后面都带着一个(),而且函数体其实是函数表达式，通过(),-,+,!运算符将函数声明转换成函数表达式，达到立即执行的效果。</p>
-<pre><code>(function(i) {
-    console.log(i)    // ()运算符，输出123
-})(123);
-
-!function(i) {
-    console.log(i)    //!运算符，输出123
-}(123);
-
-+function(i) {
-    console.log(i)    // +运算符，输出123
-}(123);
-
--function(i) {
-    console.log(i)    // -运算符，输出123
-}(123);</code></pre><p>使用立即执行函数的好处，就是上面说的开辟一个块作用域，避免破坏污染全局的命名空间。</p>
-<h2 id="this的五种绑定（未完）"><a href="#this的五种绑定（未完）" class="headerlink" title="this的五种绑定（未完）"></a>this的五种绑定（未完）</h2><p><code>this</code>的绑定规则有以下五种：</p>
-<ul>
-<li><p>默认绑定（严格/非严格模式）</p>
-</li>
-<li><p>显示绑定（call、apply方法）</p>
-</li>
-<li><p>隐式绑定</p>
-</li>
-<li><p><code>new</code>绑定</p>
-</li>
-<li><p>箭头函数绑定</p>
-<p> ……</p>
-</li>
-</ul>
-<p>（明天搞明天搞，我现在去复习一下模电呜呜呜，雨露均沾！）</p>
-<h1 id="2019-12-18-Wednesday"><a href="#2019-12-18-Wednesday" class="headerlink" title="2019/12/18 Wednesday "></a><font color="398579">2019/12/18 Wednesday </font></h1><h2 id="this的五种绑定（完）"><a href="#this的五种绑定（完）" class="headerlink" title="this的五种绑定（完）"></a>this的五种绑定（完）</h2><p>首先需要明确的一点是，<strong>this并不是在函数被定义时绑定，而是在函数被调用时</strong>。</p>
-<p><code>this</code>的绑定规则有以下五种：</p>
-<ul>
-<li>默认绑定（严格/非严格模式）</li>
-<li>显示绑定（call、apply方法）</li>
-<li>隐式绑定</li>
-<li><code>new</code>绑定</li>
-<li>箭头函数绑定</li>
-</ul>
-<p>其实一般都说四种吧，但是我觉得把箭头函数的this放在一起整理比较好。（潜意思：我就要我就要我就要，但是如果你和我说这样不行，我还是会听听的！）</p>
-<h3 id="1-默认绑定"><a href="#1-默认绑定" class="headerlink" title="1. 默认绑定"></a>1. 默认绑定</h3><p>独立函数调用：直接调用函数，使用默认绑定；</p>
-<ul>
-<li><p>严格模式：this绑定到<code>undifined</code>；</p>
-</li>
-<li><p>非严格模式：函数在非严格模式时将默认绑定到全局对象上。</p>
-<pre><code>function foo() {
-    console.log(this.a);
-}
-let a = 1;
-foo() // 1</code></pre></li>
-</ul>
-<h3 id="2-隐式绑定"><a href="#2-隐式绑定" class="headerlink" title="2.隐式绑定"></a>2.隐式绑定</h3><p>函数在被调用时，如果存在上下文对象，那么this会绑定到这个上下文对象上。</p>
-<pre><code>function foo() {
-    console.log(this.a)
-}
-let obj = {
-    a: 1,
-    foo: foo
-};
-let a = 2;
-obj.foo();         // 1</code></pre><p>显然这个函数<code>foo()</code>被调用时落脚点是obj对象。</p>
-<pre><code>let foo = function () {
-  console.log(this.a)
-}
-let obj2 = {
-  a: 2
-  foo: foo
-}
-let obj1 = {
-  a: 1
-  obj2: obj2
-};
-obj1.obj2.foo();       // 2</code></pre><p>(这个我没想好要怎么讲…先留着…)</p>
-<p>但是应用隐式绑定this存在一个问题，那就是<strong>隐式丢失</strong>。</p>
-<p>看下面这个栗子：</p>
-<pre><code>function foo() {
-    console.log(this.a)
-}
-let obj = {
-    a: 1,
-    foo: foo
-};
-let a = 2;
-let bar = obj.foo;
-bar();    //  2</code></pre><p>bar是指向obj.foo的一个引用，可是实际上，它引用的是foo函数本身，所以在调用<code>bar()</code>时，已经是作为独立函数调用了，这个时候执行的是默认绑定。</p>
-<h3 id="3-显示绑定"><a href="#3-显示绑定" class="headerlink" title="3. 显示绑定"></a>3. 显示绑定</h3><p>通过call()、apply()的方法绑定。接受一个参数，为绑定的对象，在函数调用时，将this绑定到这个对象上。</p>
-<pre><code>function foo() {
-    console.log(this.a);
-}
-let obj = {
-    a: 1,
-};
-let a = 2;
-foo.call(obj)         // 1</code></pre><p>在看刚才那个隐式丢失的栗子：</p>
-<pre><code>function foo() {
-    console.log(this.a)
-}
-let obj = {
-    a: 1,
-    foo: foo
-};
-let a = 2;
-let bar = obj.foo;
-bar.call(obj);    //  1</code></pre><p>所以用call()、apply()可以解决隐式丢失的问题。</p>
-<h3 id="4-new绑定"><a href="#4-new绑定" class="headerlink" title="4. new绑定"></a>4. new绑定</h3><p>构造函数其实是使用<code>new</code>操作调用的一个普通函数，包括内置函数在内的所有函数都可以用<code>new</code>操作符来调用，称为<strong>构造函数调用</strong>。</p>
-<p>实际上并不存在所谓的构造函数，确切的说是<strong>函数的构造调用</strong>。</p>
-<p><code>new</code>一个函数会执行下面操作：</p>
-<ul>
-<li>创建一个新的对象；</li>
-<li>将这个新对象的__proto__指向构造函数的原型（prototype）；</li>
-<li>使用这个新对象调用函数，将函数的this绑定到这个新对象上；</li>
-<li>如果函数里没有返回对象，那么返回这个创建的新对象。但是如果return 了一个对象，那么这个新对象作废。</li>
-</ul>
-<pre><code>function Foo(a) {
-    this.a = a;
-}
-let bar = new Foo(2);
-console.log(bar.a);   // 2</code></pre><h3 id="5-箭头函数绑定"><a href="#5-箭头函数绑定" class="headerlink" title="5. 箭头函数绑定"></a>5. 箭头函数绑定</h3><p>箭头函数和普通函数的this区别：</p>
-<ul>
-<li>普通函数： this指向调用这个方法的对象（谁调用我，我的this就绑定谁）；</li>
-<li>箭头函数： this指向调用环境（在哪个环境下调用我，我的this就绑定谁）。</li>
-</ul>
-<h1 id="2019-12-21-Saturday"><a href="#2019-12-21-Saturday" class="headerlink" title="2019/12/21 Saturday "></a><font color="398579">2019/12/21 Saturday </font></h1><p>即使深陷泥潭，也要仰望星空</p>
-<h1 id="2019-12-22-Sunday"><a href="#2019-12-22-Sunday" class="headerlink" title="2019/12/22 Sunday "></a><font color="398579">2019/12/22 Sunday </font></h1><p>感觉杂记可能要停了，最近全部心思都在模电上了。</p>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达，可以邮件至 610193653@qq.com，谢谢啦！ </span>
     </div>
@@ -666,12 +467,12 @@ console.log(bar.a);   // 2</code></pre><h3 id="5-箭头函数绑定"><a href="#5
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>杂记（2019/12/16-22）</p>
+    <p><span class="copy-title">文章标题:</span>滴滴一面</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="zzzwyyy">zzzwyyy</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-17, 21:33:50</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-23, 23:27:48</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/17/杂记（2019-12-16-22）/" title="杂记（2019/12/16-22）">http://yoursite.com/2019/12/17/杂记（2019-12-16-22）/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-24, 17:55:29</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-24, 17:55:29</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/24/滴滴一面/" title="滴滴一面">http://yoursite.com/2019/12/24/滴滴一面/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
